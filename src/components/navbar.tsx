@@ -29,7 +29,7 @@ export function Navbar() {
   useEffect(() => {
     if (!open) return;
     const onResize = () => {
-      if (window.innerWidth >= 640) setOpen(false);
+      if (window.innerWidth >= 768) setOpen(false);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -62,7 +62,7 @@ export function Navbar() {
 
         {/* Right — numbered micro-nav (desktop) + hamburger (mobile) */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <ul className="hidden items-center sm:flex">
+          <ul className="hidden items-center md:flex">
             {links.map((link, i) => (
               <li key={link.href}>
                 <a
@@ -83,7 +83,7 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center border-2 border-card-border bg-card text-foreground/80 transition-colors hover:border-accent hover:text-accent sm:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center border-2 border-card-border bg-card text-foreground/80 transition-colors hover:border-accent hover:text-accent md:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -92,7 +92,7 @@ export function Navbar() {
 
       {/* Mobile dropdown — numbered manifest rows */}
       {open && (
-        <div className="border-t-2 border-card-border bg-background sm:hidden">
+        <div className="border-t-2 border-card-border bg-background md:hidden">
           <ul className="mx-auto max-w-6xl px-4">
             {links.map((link, i) => (
               <li key={link.href}>
