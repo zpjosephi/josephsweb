@@ -95,6 +95,11 @@
   --accent-foreground: #ffffff;
   --ring: #9f2f2d;
   --ok: #346538;
+  /* Category tag pastels — tokenized so projects/about stay in sync (AA-safe). */
+  --tag-eng-bg: #e1f3fe;
+  --tag-eng-fg: #1f6c9f;
+  --tag-data-bg: #edf3ec;
+  --tag-data-fg: #346538;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
