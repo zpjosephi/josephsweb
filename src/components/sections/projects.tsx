@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
@@ -145,6 +146,16 @@ function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
+
+        {project.caseStudyUrl && (
+          <Link
+            href={project.caseStudyUrl}
+            className="group/cs mt-5 inline-flex items-center gap-1.5 self-start border-b border-accent pb-0.5 text-sm font-semibold text-accent transition-all hover:gap-2.5"
+          >
+            Read the case study
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
       </div>
     </article>
   );

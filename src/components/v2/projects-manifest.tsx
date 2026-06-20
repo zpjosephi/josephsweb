@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Plus, Minus } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Plus, Minus } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { projects, type ProjectCategory } from "@/data/projects";
 import { cn } from "@/lib/utils";
@@ -132,7 +133,7 @@ export function ProjectsManifest() {
                       ))}
                     </ul>
 
-                    <div className="mt-5 flex items-center gap-px bg-card-border">
+                    <div className="mt-5 flex flex-wrap items-center gap-px bg-card-border">
                       {p.liveUrl && (
                         <a
                           href={p.liveUrl}
@@ -142,6 +143,14 @@ export function ProjectsManifest() {
                         >
                           Live <ArrowUpRight className="h-3.5 w-3.5" />
                         </a>
+                      )}
+                      {p.caseStudyUrl && (
+                        <Link
+                          href={p.caseStudyUrl}
+                          className="inline-flex items-center gap-1.5 bg-background px-4 py-2 tele text-[11px] text-accent transition-colors hover:bg-muted"
+                        >
+                          Case study <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
                       )}
                       {p.githubUrl && (
                         <a
