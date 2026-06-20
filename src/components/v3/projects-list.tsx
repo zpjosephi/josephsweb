@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { GithubIcon } from "@/components/icons";
 import { projects, type ProjectCategory } from "@/data/projects";
 
@@ -126,6 +127,15 @@ export function ProjectsListV3() {
                       >
                         Visit live <span aria-hidden>↗</span>
                       </a>
+                    )}
+                    {p.caseStudyUrl && (
+                      <Link
+                        href={p.caseStudyUrl}
+                        className="inline-flex items-center gap-1.5 border border-card-border px-4 py-2 text-[13px] font-medium transition-colors hover:bg-muted"
+                        style={{ borderRadius: 6 }}
+                      >
+                        Case study <span aria-hidden>→</span>
+                      </Link>
                     )}
                     {p.githubUrl && (
                       <a

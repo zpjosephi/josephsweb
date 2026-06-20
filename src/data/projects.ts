@@ -13,6 +13,8 @@ export type Project = {
   badge?: string;
   liveUrl?: string;
   githubUrl?: string;
+  /** Optional in-depth case study page (e.g. "/work/xeleven"). */
+  caseStudyUrl?: string;
   /** Optional local screenshot in /public (e.g. "/projects/bakery.png").
    *  If omitted, a live screenshot of liveUrl is generated automatically. */
   image?: string;
@@ -46,6 +48,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://epl-xeleven.vercel.app/",
+    caseStudyUrl: "/work/xeleven",
     image: "/projects/xeleven.png",
     featured: true,
   },
