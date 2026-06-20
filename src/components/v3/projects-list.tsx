@@ -1,13 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { GithubIcon } from "@/components/icons";
 import { projects, type ProjectCategory } from "@/data/projects";
 
-// Muted pastel pairs per category (minimalist spot accents).
+// Muted pastel pairs per category — tokenized in globals.css (.v3 scope).
 const TAG: Record<ProjectCategory, { bg: string; fg: string; label: string }> = {
-  engineering: { bg: "#e1f3fe", fg: "#1f6c9f", label: "Engineering" },
-  data: { bg: "#edf3ec", fg: "#346538", label: "Data / Stats" },
+  engineering: {
+    bg: "var(--tag-eng-bg)",
+    fg: "var(--tag-eng-fg)",
+    label: "Engineering",
+  },
+  data: { bg: "var(--tag-data-bg)", fg: "var(--tag-data-fg)", label: "Data / Stats" },
 };
 
 // Projects as a stripped editorial accordion — hairline dividers, no boxes.
@@ -55,7 +60,25 @@ export function ProjectsListV3() {
             </button>
 
             {isOpen && (
-              <div className="grid gap-8 pb-8 sm:grid-cols-[1.5fr_1fr] sm:gap-12">
+              <div className="pb-10">
+                {p.image && (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${p.title} — open live site`}
+                    className="group/shot relative mb-8 block aspect-[1280/875] overflow-hidden rounded-xl border border-card-border bg-muted"
+                  >
+                    <Image
+                      src={p.image}
+                      alt={`${p.title} screenshot`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 760px"
+                      className="object-cover object-top transition-transform duration-500 group-hover/shot:scale-[1.015]"
+                    />
+                  </a>
+                )}
+                <div className="grid gap-8 sm:grid-cols-[1.5fr_1fr] sm:gap-12">
                 <div className="max-w-[68ch]">
                   <p className="text-[15px] leading-[1.7] text-muted-foreground">
                     {p.summary}
@@ -121,6 +144,7 @@ export function ProjectsListV3() {
                       </span>
                     )}
                   </div>
+                </div>
                 </div>
               </div>
             )}
