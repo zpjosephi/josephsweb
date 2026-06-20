@@ -1,26 +1,251 @@
 @import "tailwindcss";
 
+/* ===========================================================================
+   INDUSTRIAL BRUTALISM · TACTICAL TELEMETRY
+   ---------------------------------------------------------------------------
+   Two honest substrates, one accent (hazard red).
+     · DARK  = Tactical Telemetry / deactivated CRT  (default)
+     · LIGHT = Swiss Industrial Print / documentation paper
+   No gradients, no soft shadows, no translucency-as-decoration, no radius.
+=========================================================================== */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* LIGHT — Swiss Industrial Print (unbleached documentation paper) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ecebe5;
+  --foreground: #0b0b0b;
+  --muted: #e1dfd7;
+  --muted-foreground: #5c5b54;
+  --card: #f4f3ee;
+  --card-border: #11110f;          /* carbon ink hairlines, full contrast */
+  --grid-line: #11110f1a;
+  --accent: #d51a1a;               /* aviation / hazard red */
+  --accent-foreground: #f4f3ee;
+  --ring: #d51a1a;
+  --ok: #1f7a1f;                   /* single utilitarian "nominal" green */
+}
+
+/* DARK — Tactical Telemetry (deactivated CRT, never pure black) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #eaeaea;           /* white phosphor */
+  --muted: #141414;
+  --muted-foreground: #8a8a8a;
+  --card: #101010;
+  --card-border: #2a2a2a;
+  --grid-line: #eaeaea12;
+  --accent: #ff2d2d;               /* hazard red, hotter on CRT */
+  --accent-foreground: #0a0a0a;
+  --ring: #ff2d2d;
+  --ok: #4af626;                   /* phosphor green, used once */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+  --color-ok: var(--ok);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--card-border);
+}
+
+/* Visible keyboard focus on every interactive element. The ring renders on the
+   page background (separated from the element by the offset gap), so it stays
+   visible even on accent-filled buttons. Mouse clicks don't trigger it. */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+/* Brutalist routes zero out radius; keep the focus ring square to match. */
+.brutal :focus-visible {
+  outline-offset: 3px;
+}
+
+/* Mechanical rigidity: reject all radii — scoped to brutalist routes (/ , /v2) */
+.brutal *,
+.brutal *::before,
+.brutal *::after {
+  border-radius: 0 !important;
+}
+
+/* ===========================================================================
+   V3 — Premium Editorial Minimalism (warm, light) · scoped to .v3 only
+=========================================================================== */
+.v3 {
+  --background: #f7f6f3;          /* warm bone */
+  --foreground: #24231f;          /* warm charcoal, never pure black */
+  --muted: #efeee9;
+  --muted-foreground: #66635b;     /* darkened: WCAG AA (~5.3:1) on warm bone */
+  --card: #fbfbfa;
+  --card-border: #e7e5de;         /* ultra-light warm hairline */
+  --grid-line: #24231f0a;
+  --accent: #9f2f2d;              /* desaturated clay red, used sparingly */
+  --accent-foreground: #ffffff;
+  --ring: #9f2f2d;
+  --ok: #346538;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+.v3 ::selection {
+  background: #fdebec;
+  color: #9f2f2d;
+}
+/* Editorial serif — hero headings & quotes */
+.editorial {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+/* Warm ambient light spot behind the v3 hero (depth without breaking flat) */
+.v3-ambient {
+  background-image: radial-gradient(
+    60% 50% at 50% 0%,
+    rgba(159, 47, 45, 0.05),
+    transparent 70%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* --- Macro typography: structural uppercase headers ----------------------- */
+.display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+/* Micro typography helper — terminal metadata */
+.tele {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ===========================================================================
+   TEXTURE — analog degradation engineered in CSS/SVG
+=========================================================================== */
+
+/* Global low-opacity mechanical noise grain (both substrates) */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+.dark .noise-overlay {
+  opacity: 0.06;
+}
+
+/* CRT scanlines — dark substrate only (electron-beam sweep) */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.16) 2px,
+    rgba(0, 0, 0, 0.16) 3px
+  );
+  opacity: 0;
+}
+.dark .scanlines {
+  opacity: 1;
+}
+
+/* --- Blueprint grid backdrop with registration crosshairs ----------------- */
+.datasheet-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(130% 90% at 50% 0%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(130% 90% at 50% 0%, #000 55%, transparent 100%);
+}
+
+/* Hero backdrop: denser blueprint grid (flat — no glow, no gradient accent) */
+.glow-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(75% 65% at 50% 0%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(75% 65% at 50% 0%, #000 35%, transparent 100%);
+}
+
+/* Tick marks under a section's top axis line */
+.tick-axis {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--card-border) 0,
+    var(--card-border) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+/* Thick hazard warning stripe */
+.hazard-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--accent) 0,
+    var(--accent) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* --- Live data ticker marquee --------------------------------------------- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 45s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Slow blink for status indicators */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+.animate-blink {
+  animation: blink 1.4s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-ticker,
+  .animate-blink {
+    animation: none;
+  }
 }
