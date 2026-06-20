@@ -9,7 +9,7 @@ import { SpecRail } from "@/components/v2/spec-rail";
 import { ProjectsManifest } from "@/components/v2/projects-manifest";
 import { DataVizPanel } from "@/components/sections/dataviz";
 import { site } from "@/lib/site";
-import { roles, education, certifications } from "@/data/experience";
+import { roles, education, certifications, activities, languages } from "@/data/experience";
 import { skillGroups } from "@/data/skills";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ const stats = [
   { n: "03", label: "Projects shipped" },
   { n: "1000+", label: "Companies mapped @ LPEI" },
   { n: "02", label: "Disciplines: CS × Stats" },
-  { n: "380", label: "Matches analyzed in xEleven" },
+  { n: "10", label: "EPL seasons in xEleven" },
 ];
 
 export default function V2Page() {
@@ -122,7 +122,7 @@ export default function V2Page() {
 
             <div className="relative mt-16 flex items-center gap-3 tele text-[10px] text-muted-foreground">
               <span className="h-px w-12 bg-accent" />
-              SCROLL / 06 SECTIONS
+              SCROLL / 07 SECTIONS
             </div>
           </section>
 
@@ -324,9 +324,65 @@ export default function V2Page() {
             </div>
           </section>
 
-          {/* ===================================================== 04 / STACK */}
+          {/* ===================================================== 04 / VOICE */}
+          <section id="leadership" className="border-b-2 border-card-border p-6 sm:p-10">
+            <div className="tele text-[11px] text-accent">[ 04 / VOICE ]</div>
+            <h2
+              className="display mt-4 font-normal"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
+            >
+              Leadership &amp; comms
+            </h2>
+            <p className="mt-6 max-w-[58ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Most engineers can&apos;t present. I can — two years hosting campus
+              events as MC, leading committees, and mentoring students.
+            </p>
+
+            <div className="mt-8 border-t-2 border-card-border">
+              {activities.map((a) => (
+                <div
+                  key={a.org}
+                  className="grid border-b-2 border-card-border lg:grid-cols-[220px_1fr]"
+                >
+                  <div className="pt-5 lg:pb-5 lg:pr-6">
+                    <div className="tele text-[11px] text-accent">{a.period}</div>
+                  </div>
+                  <div className="pb-5 pt-3 lg:border-l-2 lg:border-card-border lg:pl-6 lg:pt-5">
+                    <h3 className="text-lg font-semibold">
+                      {a.role}
+                      <span className="text-muted-foreground"> / {a.org}</span>
+                    </h3>
+                    <ul className="mt-3 max-w-[58ch] space-y-1.5">
+                      {a.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-accent" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-px border-2 border-card-border bg-card-border sm:grid-cols-3">
+              {languages.map((l) => (
+                <div key={l.name} className="bg-background px-5 py-4">
+                  <div className="text-sm font-semibold">{l.name}</div>
+                  <div className="mt-1 tele text-[10px] text-muted-foreground">
+                    {l.level}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ===================================================== 05 / STACK */}
           <section id="stack" className="border-b-2 border-card-border p-6 sm:p-10">
-            <div className="tele text-[11px] text-accent">[ 04 / STACK ]</div>
+            <div className="tele text-[11px] text-accent">[ 05 / STACK ]</div>
             <h2
               className="display mt-4 font-normal"
               style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
@@ -365,7 +421,7 @@ export default function V2Page() {
           <section id="live" className="border-b-2 border-card-border p-6 sm:p-10">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <div className="tele text-[11px] text-accent">[ 05 / LIVE ]</div>
+                <div className="tele text-[11px] text-accent">[ 06 / LIVE ]</div>
                 <h2
                   className="display mt-4 font-normal"
                   style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
@@ -387,7 +443,7 @@ export default function V2Page() {
             id="contact"
             className="px-6 py-24 sm:px-10 sm:py-32"
           >
-            <div className="tele text-[11px] text-accent">[ 06 / CONTACT ]</div>
+            <div className="tele text-[11px] text-accent">[ 07 / CONTACT ]</div>
             <h2
               className="display mt-6 font-normal"
               style={{ fontSize: "clamp(3rem, 11vw, 9.5rem)" }}

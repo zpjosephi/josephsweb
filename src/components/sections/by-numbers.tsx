@@ -7,7 +7,7 @@ const stats = [
   { id: "01", value: 3, suffix: "", label: "Projects shipped" },
   { id: "02", value: 1000, suffix: "+", label: "Companies mapped @ LPEI" },
   { id: "03", value: 2, suffix: "", label: "Disciplines: CS × Stats" },
-  { id: "04", value: 380, suffix: "", label: "Matches analyzed in xEleven" },
+  { id: "04", value: 10, suffix: "", label: "EPL seasons in xEleven" },
 ];
 
 function useCountUp(target: number, start: boolean, duration = 1400) {

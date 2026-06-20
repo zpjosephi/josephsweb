@@ -6,7 +6,7 @@ import { Portrait } from "@/components/portrait";
 import { ProjectsListV3 } from "@/components/v3/projects-list";
 import { DataVizPanel } from "@/components/sections/dataviz";
 import { site } from "@/lib/site";
-import { roles, education, certifications } from "@/data/experience";
+import { roles, education, certifications, activities, languages } from "@/data/experience";
 import { skillGroups } from "@/data/skills";
 
 // Editorial serif for hero headings & quotes (scoped via --font-serif).
@@ -49,7 +49,7 @@ const stats = [
   { n: "03", label: "projects shipped" },
   { n: "1,000+", label: "companies mapped at LPEI" },
   { n: "02", label: "disciplines, one engineer" },
-  { n: "380", label: "matches analyzed in xEleven" },
+  { n: "10", label: "EPL seasons in xEleven" },
 ];
 
 const navLinks = [
@@ -359,6 +359,76 @@ export default function V3Page() {
               </div>
             </Reveal>
           </div>
+        </section>
+
+        {/* ============================================ LEADERSHIP & COMMS */}
+        <section className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+          <Reveal>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">
+              Leadership &amp; communication
+            </p>
+            <h2
+              className="editorial mt-5 font-normal"
+              style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)" }}
+            >
+              I lead rooms, not just code.
+            </h2>
+            <p className="mt-6 max-w-xl text-[16px] leading-[1.75] text-muted-foreground">
+              Two years hosting campus events as MC, leading committees, and
+              mentoring first-year students — the communication half of the
+              story most engineers skip.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 border-t border-card-border">
+            {activities.map((a, i) => (
+              <Reveal key={a.org} delay={0.05 * i}>
+                <div className="grid gap-4 border-b border-card-border py-8 md:grid-cols-[200px_1fr]">
+                  <div>
+                    <div className="font-mono text-[12px] text-muted-foreground">
+                      {a.period}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="editorial text-xl font-normal">{a.role}</h3>
+                    <p className="mt-1 text-[14px] text-muted-foreground">
+                      {a.org}
+                    </p>
+                    <ul className="mt-3 max-w-[68ch] space-y-2">
+                      {a.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex gap-3 text-[15px] leading-[1.6] text-muted-foreground"
+                        >
+                          <span
+                            className="mt-2 h-1 w-1 shrink-0 rounded-full"
+                            style={{ background: "var(--accent)" }}
+                          />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {languages.map((l) => (
+                <div
+                  key={l.name}
+                  className="rounded-xl border border-card-border bg-card px-4 py-3"
+                >
+                  <div className="text-[14px] font-medium">{l.name}</div>
+                  <div className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                    {l.level}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </section>
 
         {/* =========================================================== STACK */}

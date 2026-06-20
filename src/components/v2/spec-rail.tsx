@@ -10,9 +10,10 @@ const NAV = [
   { id: "profile", n: "01", label: "Profile" },
   { id: "work", n: "02", label: "Work" },
   { id: "career", n: "03", label: "Career" },
-  { id: "stack", n: "04", label: "Stack" },
-  { id: "live", n: "05", label: "Live" },
-  { id: "contact", n: "06", label: "Contact" },
+  { id: "leadership", n: "04", label: "Voice" },
+  { id: "stack", n: "05", label: "Stack" },
+  { id: "live", n: "06", label: "Live" },
+  { id: "contact", n: "07", label: "Contact" },
 ];
 
 const IDS = NAV.map((n) => n.id);
