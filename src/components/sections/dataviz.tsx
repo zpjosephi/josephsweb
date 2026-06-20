@@ -46,7 +46,7 @@ export function DataViz() {
   return (
     <Section
       id="demo"
-      eyebrow="fig.05 / live"
+      eyebrow="fig.06 / live"
       annotation="interactive"
       title="Statistics, running in your browser"
     >

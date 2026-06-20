@@ -94,7 +94,7 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      eyebrow="fig.04 / stack"
+      eyebrow="fig.05 / stack"
       annotation="hover to trace links"
       title="Tech stack"
     >

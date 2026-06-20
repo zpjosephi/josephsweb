@@ -160,7 +160,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="fig.03 / work"
+      eyebrow="fig.04 / work"
       annotation={`n = ${projects.length} records`}
       title="Selected work"
     >

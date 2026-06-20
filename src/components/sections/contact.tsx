@@ -23,7 +23,7 @@ export function Contact() {
   return (
     <Section
       id="contact"
-      eyebrow="fig.06 / contact"
+      eyebrow="fig.07 / contact"
       annotation="open to work"
       title="Let's work together"
     >
