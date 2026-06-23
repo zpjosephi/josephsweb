@@ -69,6 +69,7 @@ export function Hero() {
             <Magnetic className="inline-block">
               <a
                 href={site.cvUrl}
+                download="Joseph Irawan - CV.pdf"
                 className="inline-flex items-center gap-2 bg-background px-6 py-3.5 tele text-xs text-foreground transition-colors hover:bg-muted"
               >
                 <Download className="h-4 w-4" />
