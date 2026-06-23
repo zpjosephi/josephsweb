@@ -128,5 +128,6 @@ export const projects: Project[] = [
     ],
     tech: ["Three.js", "react-three-fiber", "GLSL", "Next.js", "TypeScript"],
     liveUrl: "https://afterhours-3d.vercel.app/",
+    image: "/projects/after-hours.png",
   },
 ];
