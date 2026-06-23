@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,22 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Secret: six quick clicks on the ® open a private view counter at the very
+  // bottom of the page. Looks like plain text, so no one stumbles on it.
+  const knock = useRef({ n: 0, t: 0 });
+  const onMarkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const now = Date.now();
+    const k = knock.current;
+    k.n = now - k.t < 800 ? k.n + 1 : 1;
+    k.t = now;
+    if (k.n >= 6) {
+      k.n = 0;
+      window.dispatchEvent(new CustomEvent("jv:reveal-views"));
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -55,7 +71,14 @@ export function Navbar() {
               CS × Statistics
             </span>
             <span className="block text-sm font-bold tracking-tight transition-colors group-hover:text-accent">
-              JOSEPH IRAWAN<span className="text-accent">®</span>
+              JOSEPH IRAWAN
+              <span
+                className="select-none text-accent"
+                onClick={onMarkClick}
+                aria-hidden
+              >
+                ®
+              </span>
             </span>
           </span>
         </a>
