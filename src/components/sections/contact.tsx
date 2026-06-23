@@ -54,6 +54,7 @@ export function Contact() {
               </a>
               <a
                 href={site.cvUrl}
+                download="Joseph Irawan - CV.pdf"
                 className="inline-flex items-center gap-2 bg-background px-5 py-3 tele text-xs transition-colors hover:bg-muted"
               >
                 <Download className="h-4 w-4" />
