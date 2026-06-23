@@ -113,4 +113,20 @@ export const projects: Project[] = [
     image: "/projects/ceritabel.png",
     featured: true,
   },
+  {
+    slug: "after-hours",
+    title: "After hours",
+    category: "engineering",
+    badge: "Experiment",
+    summary:
+      "A real-time 3D scene I built for the fun of it: a lone coder on a floating island above the clouds, with a day/night toggle the whole world reacts to. Not a product, more a place to push what a browser can render in real time.",
+    highlights: [
+      "A full real-time scene in the browser with react-three-fiber: a floating island, a waterfall pouring into the cloud sea, drifting clouds, and a rigged figure typing on a laptop",
+      "A day/night toggle that eases the whole scene at once: sun into moon, golden sky into stars, with paper lanterns, fireflies, an owl, and the occasional shooting star coming out at night",
+      "Hand-written GLSL shaders for the water, the grass, and the waterfall",
+      "Built to stay light: 3D models compressed under 1MB, thousands of grass blades drawn with instancing, and a render resolution that adapts to the GPU",
+    ],
+    tech: ["Three.js", "react-three-fiber", "GLSL", "Next.js", "TypeScript"],
+    liveUrl: "https://afterhours-3d.vercel.app/",
+  },
 ];
