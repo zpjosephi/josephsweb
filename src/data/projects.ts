@@ -79,6 +79,7 @@ export const projects: Project[] = [
       "Google Gemini",
     ],
     liveUrl: "https://bakery-kita.vercel.app/",
+    caseStudyUrl: "/work/bakery-kita",
     image: "/projects/bakery.png",
   },
   {
