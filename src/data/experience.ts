@@ -103,5 +103,5 @@ export type Language = { name: string; level: string };
 export const languages: Language[] = [
   { name: "Bahasa Indonesia", level: "Native" },
   { name: "Javanese", level: "Fluent" },
-  { name: "English", level: "Intermediate" },
+  { name: "English", level: "Professional working" },
 ];
