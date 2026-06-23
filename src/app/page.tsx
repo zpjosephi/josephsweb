@@ -12,6 +12,7 @@ import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { DataViz } from "@/components/sections/dataviz";
 import { Contact } from "@/components/sections/contact";
+import { SecretViews } from "@/components/secret-views";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <SecretViews />
     </div>
   );
 }
