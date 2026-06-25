@@ -7,7 +7,6 @@ import { StudioNav } from "@/components/studio/nav";
 import { StudioHero } from "@/components/studio/hero";
 import { CountUp } from "@/components/studio/count-up";
 import { WorkGallery } from "@/components/studio/work-gallery";
-import { CorrelationLab } from "@/components/studio/correlation";
 import { site } from "@/lib/site";
 import {
   roles,
@@ -160,9 +159,6 @@ export default function Home() {
 
         {/* ========================================================== WORK */}
         <WorkGallery />
-
-        {/* ===================================================== STATS LAB */}
-        <CorrelationLab />
 
         {/* ==================================================== EXPERIENCE */}
         <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">

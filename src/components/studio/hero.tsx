@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Magnetic } from "@/components/magnetic";
-import { Scatter } from "@/components/studio/scatter";
+import { HeroCorrelation } from "@/components/studio/hero-correlation";
 import { site } from "@/lib/site";
 
 const line1 = ["Building", "software"];
@@ -142,21 +142,10 @@ export function StudioHero() {
           transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="rounded-xl border border-card-border bg-card/60 p-3 backdrop-blur-[1px]">
-            <div className="flex items-center justify-between px-1 pb-2">
-              <span className="mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">
-                fig.01 / regression
-              </span>
-              <span className="mono inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.16em] text-accent">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                live
-              </span>
-            </div>
-            <Scatter className="block aspect-[4/3] w-full" />
-          </div>
+          <HeroCorrelation />
           <figcaption className="mt-3 max-w-sm text-[13px] leading-relaxed text-muted-foreground">
-            A least-squares line, re-solved on every frame. Move your cursor
-            through the cloud and the fit follows.
+            Drag the cloud. The least-squares line and r solve as you go, the
+            same math my projects run in the browser.
           </figcaption>
         </motion.figure>
       </div>
