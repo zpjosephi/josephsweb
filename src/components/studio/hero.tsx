@@ -21,8 +21,15 @@ const word: Variants = {
 };
 
 function Word({ children, accent }: { children: string; accent?: boolean }) {
+  // The mask clips overflow for the slide-up reveal. Italic glyphs overhang to
+  // the right, so the accent word needs horizontal padding or its last letter
+  // gets shaved. The negative margin keeps the visual spacing unchanged.
   return (
-    <span className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+    <span
+      className={`inline-block overflow-hidden pb-[0.14em] align-bottom ${
+        accent ? "pr-[0.18em] -mr-[0.18em]" : ""
+      }`}
+    >
       <motion.span
         variants={word}
         className={accent ? "inline-block italic text-accent" : "inline-block"}
