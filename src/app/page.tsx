@@ -139,7 +139,9 @@ export default function Home() {
           <div className="mt-16 grid divide-y divide-card-border border-t border-card-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {facts.map((f, i) => (
               <Reveal key={f.k} delay={0.05 * i}>
-                <div className="px-0 py-8 sm:px-7 sm:first:pl-0">
+                <div
+                  className={`py-8 sm:px-7 ${i === 0 ? "sm:pl-0" : ""}`}
+                >
                   <div
                     className={`mono text-[11px] uppercase tracking-[0.14em] ${f.accent ? "text-accent" : "text-muted-foreground"}`}
                   >
