@@ -23,9 +23,11 @@ export function Cursor() {
   const tagRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
+  // The custom cursor belongs to the louder brutalist builds only.
+  const brutalRoute = pathname === "/lab" || pathname?.startsWith("/v2");
+
   useEffect(() => {
-    // The /editorial demo ships its own cursor; /v3 stays minimalist (native).
-    if (pathname?.startsWith("/editorial") || pathname?.startsWith("/v3")) return;
+    if (!brutalRoute) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
     // Reduced-motion: skip the custom cursor, keep the native one.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -127,10 +129,9 @@ export function Cursor() {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("click", onClick);
     };
-  }, [pathname]);
+  }, [brutalRoute]);
 
-  if (!enabled || pathname?.startsWith("/editorial") || pathname?.startsWith("/v3"))
-    return null;
+  if (!enabled || !brutalRoute) return null;
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[90]">

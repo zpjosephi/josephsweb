@@ -58,10 +58,10 @@ export const projects: Project[] = [
     category: "engineering",
     badge: "Demo",
     summary:
-      "My most backend-heavy build: a full-stack e-commerce storefront on a real Postgres database (Supabase), with customer accounts, live QRIS payments, and a role-gated admin dashboard. It runs the whole ordering flow end to end — browse, add to cart, check out, pay by scanning a QR, then track the order. It isn't a real shop; payments run in Midtrans sandbox (test) mode.",
+      "My most backend-heavy build: a full-stack e-commerce storefront on a real Postgres database (Supabase), with customer accounts, live QRIS payments, and a role-gated admin dashboard. It runs the whole ordering flow end to end: browse, add to cart, check out, pay by scanning a QR, then track the order. It isn't a real shop; payments run in Midtrans sandbox (test) mode.",
     highlights: [
       "Complete ordering flow: catalog → cart → checkout → QR payment → order tracking",
-      "Real QRIS payments via Midtrans — the server creates the charge, the app renders a scannable QR, and order status updates live through polling plus a signature-verified webhook (sandbox / test mode)",
+      "Real QRIS payments via Midtrans: the server creates the charge, the app renders a scannable QR, and order status updates live through polling plus a signature-verified webhook (sandbox / test mode)",
       "Customer accounts with email + password or Google sign-in (Supabase Auth), and a personal order-history page",
       "Postgres database (Supabase) for products, orders, and user profiles, with Row-Level Security on every table so customers only ever see their own orders",
       "Role-gated admin dashboard to create, edit, delete, reorder, and toggle products, including image uploads to Supabase Storage",
@@ -87,18 +87,18 @@ export const projects: Project[] = [
     title: "ceritabel: AI Data Analysis",
     category: "data",
     summary:
-      "A free, privacy-first web app that turns a raw spreadsheet into a readable statistical analysis. Drop in a CSV or Excel file and the full workflow — cleaning, EDA, hypothesis tests, regression, and panel or time-series models — runs entirely in your browser, then an AI explains what the numbers mean in plain language. The statistics engine is hand-built and unit-tested against R.",
+      "A free, privacy-first web app that turns a raw spreadsheet into a readable statistical analysis. Drop in a CSV or Excel file and the full workflow (cleaning, EDA, hypothesis tests, regression, and panel or time-series models) runs entirely in your browser, then an AI explains what the numbers mean in plain language. The statistics engine is hand-built and unit-tested against R.",
     highlights: [
-      "Guided flow from upload to insight: a 0–100 data-quality scan, one-click auto-clean, and a reversible cleaning log where any step can be undone",
+      "Guided flow from upload to insight: a 0-100 data-quality scan, one-click auto-clean, and a reversible cleaning log where any step can be undone",
       "Detects whether the data is cross-sectional, a time series, or a panel and tailors the analysis accordingly (with manual override)",
-      "Hand-built inference engine — Welch t-test, one-way ANOVA, chi-square, and correlation — each with exact p-values, confidence intervals, and effect sizes (Cohen's d, η², Cramér's V)",
-      "Multiple OLS regression with a full coefficient table (per-term t-tests, adjusted R², overall F) and the four classical assumption checks: Jarque–Bera, VIF, Breusch–Pagan, and Durbin–Watson",
+      "Hand-built inference engine (Welch t-test, one-way ANOVA, chi-square, and correlation), each with exact p-values, confidence intervals, and effect sizes (Cohen's d, η², Cramér's V)",
+      "Multiple OLS regression with a full coefficient table (per-term t-tests, adjusted R², overall F) and the four classical assumption checks: Jarque-Bera, VIF, Breusch-Pagan, and Durbin-Watson",
       "Panel models (Pooled / Fixed Effects / Random Effects with a Hausman test) and time-series analysis (trend, moving average, period-over-period change, autocorrelation)",
       "The whole statistics engine is unit-tested against R reference values (~80 tests), so the numbers line up with what you'd get in R",
       "Charts: histograms, a correlation heatmap, scatter plots with a fitted regression line, and time-series lines",
-      "Exports ready-to-run Python (pandas / statsmodels) and R scripts that reproduce the exact session — same cleaning steps, same models",
+      "Exports ready-to-run Python (pandas / statsmodels) and R scripts that reproduce the exact session: same cleaning steps, same models",
       "Privacy-first: files are parsed and every statistic is computed in your browser; only a compact summary, never the raw rows, is sent to the AI",
-      "The AI explains each result in plain language but only interprets the numbers the app computed — it never invents its own; switchable between Gemini and Groq, fully bilingual (Indonesian / English)",
+      "The AI explains each result in plain language but only interprets the numbers the app computed, never inventing its own; switchable between Gemini and Groq, fully bilingual (Indonesian / English)",
     ],
     tech: [
       "Next.js (App Router)",
