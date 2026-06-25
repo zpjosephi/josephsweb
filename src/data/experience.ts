@@ -15,7 +15,7 @@ export const roles: Role[] = [
     company: "Indonesia Eximbank (LPEI)",
     title: "Data Analyst Intern",
     location: "South Jakarta, ID",
-    period: "Mar 2025 — Feb 2026",
+    period: "Mar 2025 - Feb 2026",
     bullets: [
       "Wrote market-research reports (Kajian) on export commodities, tracking export trends, market shifts, and macroeconomic drivers to inform business strategy.",
       "Automated the leads-generation workflow that mapped and routed 1,000+ prospective debtor companies to the right business units.",
@@ -67,7 +67,7 @@ export const certifications: string[] = [
   "Progate · Python Fundamental",
 ];
 
-// Leadership & communication — the differentiator most engineers lack.
+// Leadership and communication. The differentiator most engineers lack.
 // Reframes campus MC / committee / mentoring work as professional evidence
 // that Joseph can present, lead, and explain (the "communicates data" half).
 export type Activity = {
@@ -79,18 +79,18 @@ export type Activity = {
 
 export const activities: Activity[] = [
   {
-    org: "HIMSTAT — BINUS Statistics Student Association",
+    org: "HIMSTAT, BINUS Statistics Student Association",
     role: "HR & Development Staff · Event MC & Chief Committee",
-    period: "Mar 2022 — Mar 2024",
+    period: "Mar 2022 - Mar 2024",
     bullets: [
-      "Master of Ceremony for the association's flagship events — seminars, anniversaries, the Shopee company visit, MATIC, and P2M.",
+      "Master of Ceremony for the association's flagship events: seminars, anniversaries, the Shopee company visit, MATIC, and P2M.",
       "Chief Committee for HIMSTAT Gathering 2022 & 2023, leading the organizing team end to end.",
     ],
   },
   {
-    org: "First Year Program — BINUS University",
+    org: "First Year Program, BINUS University",
     role: "Freshmen Partner (Mentor)",
-    period: "Aug 2022 — Jul 2023",
+    period: "Aug 2022 - Jul 2023",
     bullets: [
       "Mentored first-year students through their transition into university life across the year.",
       "Guided new students during the 5-day Orientation & Transition Program.",

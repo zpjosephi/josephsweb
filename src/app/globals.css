@@ -123,6 +123,100 @@
   );
 }
 
+/* ===========================================================================
+   STUDIO. Editorial "ink on paper" front page (/) · scoped to .studio
+   ---------------------------------------------------------------------------
+   One restrained accent (cool cobalt, used on <5% of the page). Light is the
+   primary substrate (warm paper + ink); dark is a near-black gallery. Soft
+   unified radii, hairline rules, no grain/scanlines/hazard chrome.
+=========================================================================== */
+.studio {
+  --background: #f4f2ec;          /* warm documentation paper */
+  --foreground: #16150f;          /* warm ink, never pure black */
+  --muted: #e9e6dc;
+  --muted-foreground: #64615a;    /* AA (~5.0:1) on warm paper */
+  --card: #faf8f3;
+  --card-border: #dcd7ca;         /* warm hairline */
+  --hairline: #c7c1b2;            /* stronger rule for structure */
+  --grid-line: #1615100c;
+  --accent: #2a44c4;              /* cool cobalt, the single signal */
+  --accent-foreground: #f7f5ef;
+  --ring: #2a44c4;
+  --ok: #2f7a43;
+
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-bricolage);
+
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.dark .studio {
+  --background: #0c0c0d;          /* near-black gallery */
+  --foreground: #ededed;
+  --muted: #161618;
+  --muted-foreground: #9b988f;    /* AA on near-black */
+  --card: #121214;
+  --card-border: #292a2d;
+  --hairline: #3b3b3f;
+  --grid-line: #ededed0d;
+  --accent: #8094ff;              /* brighter cobalt on near-black */
+  --accent-foreground: #0c0c0d;
+  --ring: #8094ff;
+  --ok: #5fce7d;
+}
+
+/* Shape lock: every interactive element is a pill, every surface is 12px. */
+.studio {
+  --radius: 12px;
+}
+
+/* Display headings: characterful grotesque, tight optical tracking. */
+.studio-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+  font-weight: 600;
+}
+
+/* Micro metadata: mono, used for labels and live numbers only. */
+.studio .mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.studio ::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Faint engineering grid behind the hero (depth without the blueprint cliche). */
+.studio-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(115% 80% at 50% 0%, #000 38%, transparent 80%);
+  mask-image: radial-gradient(115% 80% at 50% 0%, #000 38%, transparent 80%);
+}
+
+/* Link underline that draws in on hover (nav + inline links). */
+.studio .ul-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.studio .ul-draw:hover {
+  background-size: 100% 1px;
+}
+
+/* Slider thumb/track adopt the accent without bespoke chrome. */
+.studio input[type="range"] {
+  accent-color: var(--accent);
+}
+
 html {
   scroll-behavior: smooth;
 }
