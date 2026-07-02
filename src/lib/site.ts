@@ -5,7 +5,7 @@ export const site = {
   // Positioning: Computer Science × Statistics
   tagline: "Computer Science × Statistics. Building software that understands data.",
   blurb:
-    "I build software products that are also smart with data. Engineering to build, statistics to analyze. One story, not two different people.",
+    "Computer Science and Statistics student at BINUS building full-stack web apps that turn data into decisions. Four projects live in production.",
   location: "Indonesia",
   email: "josephirawan07@gmail.com",
   // Replace with your real CV file once uploaded to /public

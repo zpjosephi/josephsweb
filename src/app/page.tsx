@@ -1,399 +1,499 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { HomeNav } from "@/components/home/nav";
 import { Reveal } from "@/components/reveal";
 import { Portrait } from "@/components/portrait";
-import { Magnetic } from "@/components/magnetic";
-import { StudioNav } from "@/components/studio/nav";
-import { StudioHero } from "@/components/studio/hero";
-import { CountUp } from "@/components/studio/count-up";
-import { WorkGallery } from "@/components/studio/work-gallery";
 import { site } from "@/lib/site";
-import {
-  roles,
-  education,
-  certifications,
-  activities,
-  languages,
-} from "@/data/experience";
-import { skillGroups } from "@/data/skills";
 
-type Stat = {
-  value: number;
-  label: string;
-  pad?: number;
-  comma?: boolean;
-  prefix?: string;
-  suffix?: string;
+function ExternalLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="link inline-flex items-center gap-1 text-[14.5px] font-medium"
+    >
+      {children}
+      <ArrowUpRight className="h-3.5 w-3.5" />
+    </a>
+  );
+}
+
+/* ------------------------------------------------------------------ hero */
+
+function Hero() {
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pb-24 sm:pt-24">
+      <Reveal>
+        <h1 className="home-display max-w-[22ch] text-[clamp(2.3rem,5.4vw,3.9rem)]">
+          I build web apps that turn data into decisions.
+        </h1>
+      </Reveal>
+      <Reveal delay={0.08}>
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-muted-foreground">
+          Final-year Computer Science &amp; Statistics student at BINUS,
+          previously a data analyst intern at Indonesia Eximbank. Everything
+          below is shipped and running live.
+        </p>
+      </Reveal>
+      <Reveal delay={0.14}>
+        <div className="mt-9 flex flex-wrap items-center gap-3">
+          <a
+            href="#work"
+            className="inline-flex items-center rounded-[10px] bg-foreground px-5 py-2.5 text-[14px] font-medium text-background transition-transform hover:-translate-y-px active:translate-y-0"
+          >
+            See the work
+          </a>
+          <a
+            href={site.cvUrl}
+            className="inline-flex items-center gap-1.5 rounded-[10px] border border-hairline px-5 py-2.5 text-[14px] font-medium transition-colors hover:bg-card"
+          >
+            Download CV
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ work */
+
+function Stack({ items }: { items: string }) {
+  return <p className="mono mt-4 text-[12.5px] text-muted-foreground">{items}</p>;
+}
+
+function Shot({
+  src,
+  alt,
+  priority,
+  aspect = "aspect-[16/10]",
+  sizes,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  aspect?: string;
+  sizes: string;
+}) {
+  return (
+    <div
+      className={`relative ${aspect} overflow-hidden rounded-[10px] border border-card-border bg-muted`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes={sizes}
+        className="object-cover object-top"
+      />
+    </div>
+  );
+}
+
+function Work() {
+  return (
+    <section id="work" className="border-t border-card-border">
+      <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+        <Reveal>
+          <h2 className="home-display text-[clamp(1.7rem,3.4vw,2.4rem)]">
+            Selected work
+          </h2>
+        </Reveal>
+
+        {/* Flagship: ceritabel */}
+        <Reveal className="mt-10">
+          <Shot
+            src="/projects/ceritabel.png"
+            alt="ceritabel: a regression results table with assumption checks and an AI explanation panel"
+            priority
+            aspect="aspect-[16/9]"
+            sizes="(max-width: 1024px) 92vw, 976px"
+          />
+          <div className="mt-8 grid gap-8 md:grid-cols-[1fr_250px]">
+            <div>
+              <h3 className="text-[22px] font-semibold tracking-tight">
+                ceritabel
+              </h3>
+              <p className="mt-3 max-w-[62ch] text-[15.5px] leading-[1.65] text-muted-foreground">
+                Upload a spreadsheet and it runs the whole statistical workflow
+                in your browser: cleaning, EDA, hypothesis tests, OLS regression
+                with the classical assumption checks, plus panel and time-series
+                models. An AI layer then explains the results in plain language.
+              </p>
+              <ul className="mt-4 max-w-[62ch] list-disc space-y-1.5 pl-5 text-[15px] leading-[1.6] text-muted-foreground marker:text-hairline">
+                <li>
+                  The inference engine is hand-built and unit-tested against R
+                  reference values, about 80 tests.
+                </li>
+                <li>
+                  Privacy-first: raw rows never leave the browser, only compact
+                  summaries reach the AI.
+                </li>
+                <li>
+                  Exports runnable Python and R scripts that reproduce the exact
+                  session.
+                </li>
+              </ul>
+            </div>
+            <div className="md:pt-1">
+              <p className="text-[13px] font-medium text-muted-foreground">
+                Stack
+              </p>
+              <p className="mono mt-1.5 text-[12.5px] leading-relaxed text-muted-foreground">
+                Next.js, TypeScript, Vitest, Recharts, Gemini / Groq
+              </p>
+              <p className="mt-5 text-[13px] font-medium text-muted-foreground">
+                Links
+              </p>
+              <div className="mt-1.5">
+                <ExternalLink href="https://ceritabel.vercel.app/">
+                  Open live app
+                </ExternalLink>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Second feature: xEleven */}
+        <Reveal className="mt-16 sm:mt-20">
+          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+            <div>
+              <h3 className="text-[22px] font-semibold tracking-tight">
+                xEleven
+              </h3>
+              <p className="mt-3 text-[15.5px] leading-[1.65] text-muted-foreground">
+                Premier League analytics for the 2025/26 season: nine tools over
+                a live football-data API, from standings and player scouting to
+                a title-race chart and a full season Manager Mode. It started as
+                my thesis and kept growing after submission.
+              </p>
+              <Stack items="Next.js, TypeScript, Recharts, football-data.org API" />
+              <div className="mt-5 flex flex-wrap items-center gap-5">
+                <ExternalLink href="https://epl-xeleven.vercel.app/">
+                  Open live app
+                </ExternalLink>
+                <Link
+                  href="/work/xeleven"
+                  className="link text-[14.5px] font-medium"
+                >
+                  Read the case study
+                </Link>
+              </div>
+            </div>
+            <Shot
+              src="/projects/xeleven.png"
+              alt="xEleven: Premier League standings dashboard with club form and stats"
+              sizes="(max-width: 768px) 92vw, 480px"
+            />
+          </div>
+        </Reveal>
+
+        {/* Pair: Bakery Kita + After hours */}
+        <div className="mt-16 grid gap-12 sm:mt-20 sm:grid-cols-2 sm:gap-10">
+          <Reveal>
+            <Shot
+              src="/projects/bakery.png"
+              alt="Bakery Kita: product catalog of an e-commerce storefront"
+              sizes="(max-width: 640px) 92vw, 470px"
+            />
+            <h3 className="mt-5 text-[19px] font-semibold tracking-tight">
+              Bakery Kita
+            </h3>
+            <p className="mt-2.5 text-[15px] leading-[1.6] text-muted-foreground">
+              Full-stack e-commerce on a real Postgres database: catalog, cart,
+              checkout, QRIS payments through Midtrans (sandbox mode), row-level
+              security, and a role-gated admin dashboard. Prices are recomputed
+              server-side and webhook signatures verified.
+            </p>
+            <Stack items="Next.js, Supabase, Midtrans, Tailwind CSS" />
+            <div className="mt-4 flex flex-wrap items-center gap-5">
+              <ExternalLink href="https://bakery-kita.vercel.app/">
+                Open live app
+              </ExternalLink>
+              <Link
+                href="/work/bakery-kita"
+                className="link text-[14.5px] font-medium"
+              >
+                Read the case study
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <Shot
+              src="/projects/after-hours.png"
+              alt="After hours: 3D scene of a coder on a floating island at night"
+              sizes="(max-width: 640px) 92vw, 470px"
+            />
+            <h3 className="mt-5 text-[19px] font-semibold tracking-tight">
+              After hours
+            </h3>
+            <p className="mt-2.5 text-[15px] leading-[1.6] text-muted-foreground">
+              A real-time 3D experiment: a coder on a floating island, with
+              hand-written GLSL shaders for the water and grass, a day/night
+              toggle the whole scene reacts to, and models compressed under 1MB.
+            </p>
+            <Stack items="Three.js, react-three-fiber, GLSL, Next.js" />
+            <div className="mt-4">
+              <ExternalLink href="https://afterhours-3d.vercel.app/">
+                Open live app
+              </ExternalLink>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------ experience */
+
+type Row = {
+  period: string;
+  place: string;
+  title: string;
+  org: string;
+  points: string[];
 };
 
-const stats: Stat[] = [
-  { value: 4, pad: 2, label: "projects shipped, all live" },
-  { value: 1000, comma: true, suffix: "+", label: "companies mapped at LPEI" },
-  { value: 2, pad: 2, label: "disciplines, one engineer" },
-  { value: 80, prefix: "~", label: "unit tests checked against R" },
+const rows: Row[] = [
+  {
+    period: "Mar 2025 - Feb 2026",
+    place: "South Jakarta",
+    title: "Data Analyst Intern",
+    org: "Indonesia Eximbank (LPEI)",
+    points: [
+      "Wrote market research (Kajian) on export commodities: trends, market shifts, and the macroeconomic drivers behind them.",
+      "Automated a leads pipeline that mapped and routed 1,000+ prospective debtor companies to the right business units.",
+      "Built Tableau dashboards that generate the charts for economic reports automatically, replacing manual work.",
+      "Scraped macroeconomic data from the BPS (Statistics Indonesia) portal into Excel pivot tables for faster analysis.",
+    ],
+  },
+  {
+    period: "Aug 2023",
+    place: "West Jakarta",
+    title: "UI/UX Designer Intern",
+    org: "Nusatalent",
+    points: [
+      "Designed the platform's Events section end to end in Figma: user flows, wireframes, and high-fidelity mockups.",
+      "Ran a one-month design sprint from business requirements to a developer-ready handoff.",
+    ],
+  },
+  {
+    period: "Expected Aug 2026",
+    place: "West Jakarta",
+    title: "B.Sc. Computer Science & Statistics",
+    org: "Bina Nusantara University",
+    points: [
+      "Double degree. Coursework spans machine learning, artificial intelligence, data analysis, software engineering, web programming, and UI/UX.",
+    ],
+  },
 ];
 
-type Fact = { k: string; t: string; b: string; accent?: boolean };
+function Experience() {
+  return (
+    <section id="experience" className="border-t border-card-border">
+      <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+        <Reveal>
+          <h2 className="home-display text-[clamp(1.7rem,3.4vw,2.4rem)]">
+            Experience
+          </h2>
+        </Reveal>
+        <div className="mt-6 divide-y divide-card-border">
+          {rows.map((r, i) => (
+            <Reveal key={r.org} delay={0.04 * i}>
+              <div className="grid gap-3 py-8 md:grid-cols-[220px_1fr] md:gap-6">
+                <div>
+                  <p className="mono text-[13px]">{r.period}</p>
+                  <p className="mono mt-0.5 text-[12px] text-muted-foreground">
+                    {r.place}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-[17px] font-semibold tracking-tight">
+                    {r.title}
+                    <span className="font-normal text-muted-foreground">
+                      {" "}
+                      at {r.org}
+                    </span>
+                  </h3>
+                  <ul className="mt-3 max-w-[70ch] list-disc space-y-1.5 pl-5 text-[15px] leading-[1.6] text-muted-foreground marker:text-hairline">
+                    {r.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <p className="max-w-[70ch] border-t border-card-border pt-6 text-[14px] leading-[1.6] text-muted-foreground">
+            Certifications: AWS Academy Cloud Foundations and Cloud
+            Architecting, plus Progate fundamentals in Python and JavaScript.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
-const facts: Fact[] = [
+/* ----------------------------------------------------------------- about */
+
+const toolbox = [
+  { k: "Languages", v: "TypeScript / JavaScript, Python, R, SQL" },
+  { k: "Web & frameworks", v: "Next.js, React, Tailwind CSS, Node.js" },
   {
-    k: "Engineering",
-    t: "I build the thing.",
-    b: "Production web apps end to end, from interface to API to deploy. The CS half.",
+    k: "Data & statistics",
+    v: "PostgreSQL / Supabase, Tableau, Excel, regression, hypothesis testing, panel data",
   },
-  {
-    k: "Statistics",
-    t: "I make it reason.",
-    b: "Modeling, testing, and turning raw tables into something worth acting on. The stats half.",
-  },
-  {
-    k: "The combination",
-    t: "Most people pick one.",
-    b: "Plenty of engineers cannot model; plenty of statisticians cannot ship. Doing both is the edge.",
-    accent: true,
-  },
+  { k: "Tools & cloud", v: "Git / GitHub, Figma, Vercel, AWS (Academy)" },
 ];
+
+function About() {
+  return (
+    <section id="about" className="border-t border-card-border">
+      <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+        <Reveal>
+          <h2 className="home-display text-[clamp(1.7rem,3.4vw,2.4rem)]">
+            About
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_280px] lg:gap-16">
+          <Reveal>
+            <div className="max-w-[62ch] space-y-4 text-[15.5px] leading-[1.7] text-muted-foreground">
+              <p>
+                The double degree is the whole idea: computer science to build
+                the product, statistics to be honest about the data inside it.
+                My favorite work is where both halves meet, like ceritabel,
+                whose inference engine I wrote by hand and then tested against
+                R until the numbers matched.
+              </p>
+              <p>
+                Outside the code I spent two years in HIMSTAT, the statistics
+                student association at BINUS, as HR staff, event MC, and chief
+                committee for two annual gatherings. I also mentored first-year
+                students through their first year of university. Presenting to
+                a room full of people is genuinely part of the job I enjoy.
+              </p>
+              <p>
+                Based in Jakarta. Bahasa Indonesia natively, Javanese fluently,
+                English at professional working level.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <figure className="max-w-[280px]">
+              <div className="overflow-hidden rounded-[10px] border border-card-border bg-muted">
+                <Portrait mode="natural" className="block h-auto w-full" />
+              </div>
+            </figure>
+          </Reveal>
+        </div>
+        <Reveal>
+          <dl className="mt-12 grid gap-x-12 gap-y-6 border-t border-card-border pt-8 sm:grid-cols-2">
+            {toolbox.map((t) => (
+              <div key={t.k}>
+                <dt className="text-[13px] font-medium text-muted-foreground">
+                  {t.k}
+                </dt>
+                <dd className="mt-1 text-[15px] leading-[1.6]">{t.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------- contact */
+
+function Contact() {
+  return (
+    <section id="contact" className="border-t border-card-border">
+      <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+        <Reveal>
+          <h2 className="home-display text-[clamp(1.7rem,3.4vw,2.4rem)]">
+            Contact
+          </h2>
+          <p className="mt-5 max-w-[52ch] text-[15.5px] leading-[1.65] text-muted-foreground">
+            Open to internships, junior roles, and freelance work. Email gets
+            the fastest reply.
+          </p>
+          <a
+            href={site.socials.email}
+            className="link mt-6 inline-block break-all text-[clamp(1.3rem,3.2vw,2rem)] font-semibold tracking-tight"
+          >
+            {site.email}
+          </a>
+          <div className="mt-8 flex flex-wrap items-center gap-6">
+            <a
+              href={site.socials.github}
+              target="_blank"
+              rel="noreferrer"
+              className="link inline-flex items-center gap-2 text-[14.5px] font-medium"
+            >
+              <GithubIcon className="h-4 w-4" /> GitHub
+            </a>
+            <a
+              href={site.socials.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="link inline-flex items-center gap-2 text-[14.5px] font-medium"
+            >
+              <LinkedinIcon className="h-4 w-4" /> LinkedIn
+            </a>
+            <a
+              href={site.cvUrl}
+              className="link inline-flex items-center gap-2 text-[14.5px] font-medium"
+            >
+              Download CV
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ page */
 
 export default function Home() {
   return (
-    <div className="studio relative flex min-h-screen flex-col">
-      <a
-        href="#work"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
-      >
-        Skip to work
-      </a>
-
-      <StudioNav />
-
-      <main className="flex-1">
-        <StudioHero />
-
-        {/* ===================================================== STAT BAND */}
-        <section className="border-y border-card-border">
-          <dl className="mx-auto grid max-w-6xl grid-cols-2 px-5 sm:px-8 md:grid-cols-4">
-            {stats.map((s, i) => {
-              const mobileLeft = i % 2 === 1; // right column on mobile
-              const cls = [
-                "py-8",
-                mobileLeft ? "border-l border-card-border pl-6" : "",
-                i >= 2 ? "border-t border-card-border md:border-t-0" : "",
-                i !== 0 ? "md:border-l md:border-card-border md:pl-6" : "",
-              ].join(" ");
-              return (
-                <div key={s.label} className={cls}>
-                  <dt className="studio-display text-[clamp(2.2rem,4.4vw,3.1rem)] leading-none">
-                    <CountUp
-                      value={s.value}
-                      pad={s.pad}
-                      comma={s.comma}
-                      prefix={s.prefix}
-                      suffix={s.suffix}
-                    />
-                  </dt>
-                  <dd className="mt-2 max-w-[22ch] text-[13px] leading-snug text-muted-foreground">
-                    {s.label}
-                  </dd>
-                </div>
-              );
-            })}
-          </dl>
-        </section>
-
-        {/* ========================================================= ABOUT */}
-        <section id="about" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16">
-            <Reveal>
-              <div>
-                <h2 className="studio-display max-w-xl text-[clamp(2rem,4.6vw,3.4rem)]">
-                  Two disciplines, treated as one person.
-                </h2>
-                <div className="mt-7 max-w-md space-y-4 text-[16px] leading-[1.7] text-muted-foreground">
-                  <p>
-                    I am a double-degree student in Computer Science and
-                    Statistics. The engineering projects prove I can build; the
-                    statistics projects prove I can analyze.
-                  </p>
-                  <p>
-                    Put together they tell one story instead of two: data-driven
-                    software that people actually use, built and reasoned about by
-                    the same hands.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.08}>
-              <figure>
-                <div className="overflow-hidden rounded-xl border border-card-border bg-muted">
-                  <Portrait mode="grayscale" className="block h-auto w-full" />
-                </div>
-                <figcaption className="mono mt-3 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
-                  Joseph Irawan, Jakarta ID
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-
-          {/* three facts as a divided band, not boxed cards */}
-          <div className="mt-16 grid divide-y divide-card-border border-t border-card-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {facts.map((f, i) => (
-              <Reveal key={f.k} delay={0.05 * i}>
-                <div
-                  className={`py-8 sm:px-7 ${i === 0 ? "sm:pl-0" : ""}`}
-                >
-                  <div
-                    className={`mono text-[11px] uppercase tracking-[0.14em] ${f.accent ? "text-accent" : "text-muted-foreground"}`}
-                  >
-                    {f.k}
-                  </div>
-                  <h3 className="studio-display mt-4 text-[1.4rem] leading-tight">
-                    {f.t}
-                  </h3>
-                  <p className="mt-2.5 text-[14.5px] leading-[1.65] text-muted-foreground">
-                    {f.b}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {/* ========================================================== WORK */}
-        <WorkGallery />
-
-        {/* ==================================================== EXPERIENCE */}
-        <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <Reveal>
-            <h2 className="studio-display max-w-2xl text-[clamp(2rem,4.6vw,3.4rem)]">
-              Where the work has happened.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 border-t border-card-border">
-            {roles.map((role, i) => (
-              <Reveal key={role.company} delay={0.04 * i}>
-                <div className="grid gap-4 border-b border-card-border py-8 md:grid-cols-[210px_1fr]">
-                  <div>
-                    <div className="mono text-[12.5px] text-foreground/80">
-                      {role.period}
-                    </div>
-                    <div className="mono text-[11px] text-muted-foreground">
-                      {role.location}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-[18px] font-medium tracking-tight">
-                      {role.title}
-                      <span className="text-muted-foreground"> · {role.company}</span>
-                    </h3>
-                    <ul className="mt-3 max-w-[70ch] space-y-2">
-                      {role.bullets.map((b) => (
-                        <li
-                          key={b}
-                          className="flex gap-3 text-[15px] leading-[1.6] text-muted-foreground"
-                        >
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {role.tools.map((t) => (
-                        <li
-                          key={t}
-                          className="mono rounded-full border border-hairline px-3 py-1 text-[12px] text-muted-foreground"
-                        >
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <Reveal>
-              <div className="h-full rounded-xl border border-card-border bg-card p-7">
-                <div className="mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
-                  Education
-                </div>
-                <h3 className="mt-3 text-[18px] font-medium tracking-tight">
-                  {education.school}
-                </h3>
-                <p className="mt-1 text-[15px] text-muted-foreground">
-                  {education.degree}
-                </p>
-                <p className="mono mt-1 text-[12px] text-muted-foreground">
-                  {education.period}
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {education.coursework.map((c) => (
-                    <li
-                      key={c}
-                      className="mono rounded-full border border-hairline px-3 py-1 text-[12px] text-muted-foreground"
-                    >
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <div className="h-full rounded-xl border border-card-border bg-card p-7">
-                <div className="mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
-                  Certifications and languages
-                </div>
-                <ul className="mt-3 space-y-2.5">
-                  {certifications.map((c) => (
-                    <li key={c} className="flex items-start gap-3 text-[15px]">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-card-border pt-4">
-                  {languages.map((l) => (
-                    <div key={l.name} className="text-[13.5px]">
-                      <span className="font-medium">{l.name}</span>
-                      <span className="text-muted-foreground"> · {l.level}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* leadership, folded in so the page keeps the "communicates" half */}
-          <Reveal>
-            <div className="mt-16 grid gap-6 border-t border-card-border pt-12 md:grid-cols-[210px_1fr]">
-              <h3 className="text-[18px] font-medium tracking-tight">
-                Leading rooms, not just code
-              </h3>
-              <div className="max-w-[70ch] text-[15px] leading-[1.7] text-muted-foreground">
-                <p>
-                  Two years as event MC, chief committee, and first-year mentor.
-                  The communication half of the story most engineers skip over.
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {activities.map((a) => (
-                    <li key={a.org} className="flex gap-3">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                      <span>
-                        <span className="text-foreground">{a.role}</span>
-                        <span className="text-muted-foreground"> · {a.org}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* ========================================================= STACK */}
-        <section className="border-t border-card-border bg-card/40">
-          <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-            <Reveal>
-              <h2 className="studio-display max-w-2xl text-[clamp(2rem,4.6vw,3.4rem)]">
-                The toolkit, grouped by what it is for.
-              </h2>
-            </Reveal>
-            <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {skillGroups.map((g, i) => (
-                <Reveal key={g.label} delay={0.03 * i}>
-                  <div className="border-t border-hairline pt-4">
-                    <h3 className="mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-                      {g.label}
-                    </h3>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {g.items.map((it) => (
-                        <li
-                          key={it}
-                          className="rounded-full border border-card-border bg-card px-3 py-1.5 text-[13px] text-foreground/85"
-                        >
-                          {it}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================================= CONTACT */}
-        <section id="contact" className="border-t border-card-border">
-          <div className="mx-auto max-w-3xl px-5 py-24 text-center sm:py-32">
-            <Reveal>
-              <p className="mono text-[12px] uppercase tracking-[0.16em] text-muted-foreground">
-                Get in touch
-              </p>
-              <h2 className="studio-display mx-auto mt-6 max-w-2xl text-[clamp(2.4rem,6vw,4.6rem)]">
-                Let&apos;s build something that reasons.
-              </h2>
-              <p className="mx-auto mt-6 max-w-md text-[16px] leading-[1.65] text-muted-foreground">
-                Open to internships, freelance, and full-time roles. Email is the
-                fastest way to reach me, or take the CV.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-                <Magnetic strength={0.3}>
-                  <a
-                    href={site.socials.email}
-                    className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-[14px] font-medium text-background transition-transform hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                  >
-                    <Mail className="h-4 w-4" /> Email me
-                  </a>
-                </Magnetic>
-                <a
-                  href={site.cvUrl}
-                  className="inline-flex items-center gap-2 rounded-full border border-hairline px-6 py-3 text-[14px] font-medium transition-colors hover:bg-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                >
-                  Download CV <ArrowUpRight className="h-4 w-4" />
-                </a>
-                <a
-                  href={site.socials.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="GitHub"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hairline transition-colors hover:bg-card"
-                >
-                  <GithubIcon className="h-[18px] w-[18px]" />
-                </a>
-                {site.socials.linkedin && (
-                  <a
-                    href={site.socials.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hairline transition-colors hover:bg-card"
-                  >
-                    <LinkedinIcon className="h-[18px] w-[18px]" />
-                  </a>
-                )}
-              </div>
-              <p className="mono mt-8 text-[13px] text-muted-foreground">
-                {site.email}
-              </p>
-            </Reveal>
-          </div>
-        </section>
+    <div id="top" className="home relative flex min-h-screen flex-col">
+      <HomeNav />
+      <main id="main-content" className="flex-1">
+        <Hero />
+        <Work />
+        <Experience />
+        <About />
+        <Contact />
       </main>
-
       <footer className="border-t border-card-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-center sm:flex-row sm:px-8 sm:text-left">
-          <p className="text-[13px] text-muted-foreground">
-            © {new Date().getFullYear()} {site.shortName}. Built with Next.js.
+        <div className="mx-auto flex max-w-5xl flex-col justify-between gap-2 px-6 py-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
+          <p>
+            © {new Date().getFullYear()} {site.shortName}
           </p>
-          <a
-            href="/lab"
-            className="ul-draw mono text-[12px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Prefer it louder? See the lab cut
-          </a>
+          <p>
+            Earlier designs of this site:{" "}
+            <Link href="/studio" className="link">
+              Studio
+            </Link>{" "}
+            and{" "}
+            <Link href="/lab" className="link">
+              Lab
+            </Link>
+          </p>
         </div>
       </footer>
     </div>

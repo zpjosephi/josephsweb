@@ -11,7 +11,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* LIGHT — Swiss Industrial Print (unbleached documentation paper) */
+/* LIGHT - Swiss Industrial Print (unbleached documentation paper) */
 :root {
   --background: #ecebe5;
   --foreground: #0b0b0b;
@@ -26,7 +26,7 @@
   --ok: #1f7a1f;                   /* single utilitarian "nominal" green */
 }
 
-/* DARK — Tactical Telemetry (deactivated CRT, never pure black) */
+/* DARK - Tactical Telemetry (deactivated CRT, never pure black) */
 .dark {
   --background: #0a0a0a;
   --foreground: #eaeaea;           /* white phosphor */
@@ -48,6 +48,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-card-border: var(--card-border);
+  --color-hairline: var(--hairline);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-ring: var(--ring);
@@ -73,7 +74,7 @@
   outline-offset: 3px;
 }
 
-/* Mechanical rigidity: reject all radii — scoped to brutalist routes (/ , /v2) */
+/* Mechanical rigidity: reject all radii - scoped to brutalist routes (/ , /v2) */
 .brutal *,
 .brutal *::before,
 .brutal *::after {
@@ -81,7 +82,7 @@
 }
 
 /* ===========================================================================
-   V3 — Premium Editorial Minimalism (warm, light) · scoped to .v3 only
+   V3 - Premium Editorial Minimalism (warm, light) · scoped to .v3 only
 =========================================================================== */
 .v3 {
   --background: #f7f6f3;          /* warm bone */
@@ -95,7 +96,7 @@
   --accent-foreground: #ffffff;
   --ring: #9f2f2d;
   --ok: #346538;
-  /* Category tag pastels — tokenized so projects/about stay in sync (AA-safe). */
+  /* Category tag pastels - tokenized so projects/about stay in sync (AA-safe). */
   --tag-eng-bg: #e1f3fe;
   --tag-eng-fg: #1f6c9f;
   --tag-data-bg: #edf3ec;
@@ -108,7 +109,7 @@
   background: #fdebec;
   color: #9f2f2d;
 }
-/* Editorial serif — hero headings & quotes */
+/* Editorial serif - hero headings & quotes */
 .editorial {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   letter-spacing: -0.025em;
@@ -217,6 +218,77 @@
   accent-color: var(--accent);
 }
 
+/* ===========================================================================
+   HOME. The front page (/) · scoped to .home
+   ---------------------------------------------------------------------------
+   Quiet, typographic, near-monochrome. One family (Schibsted Grotesk) doing
+   display and body work through weight contrast, mono reserved for dates and
+   file-style metadata. Single deep-green accent, used for links and little else.
+=========================================================================== */
+.home {
+  --background: #f6f6f3;
+  --foreground: #1b1b17;
+  --muted: #ebebe7;
+  --muted-foreground: #55554f;    /* ~7:1 on the page background */
+  --card: #fdfdfb;
+  --card-border: #e0e0da;
+  --hairline: #c9c9c1;
+  --grid-line: #1b1b170a;
+  --accent: #1c6b4b;              /* deep green, ~6:1 on light */
+  --accent-foreground: #f4faf6;
+  --ring: #1c6b4b;
+  --ok: #1c6b4b;
+
+  --font-sans: var(--font-home);
+
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.dark .home {
+  --background: #141412;
+  --foreground: #e8e8e2;
+  --muted: #1d1d1a;
+  --muted-foreground: #a4a49b;    /* AA+ on near-black */
+  --card: #1a1a17;
+  --card-border: #2c2c28;
+  --hairline: #3c3c37;
+  --grid-line: #e8e8e20a;
+  --accent: #6cc796;              /* readable green on dark */
+  --accent-foreground: #101410;
+  --ring: #6cc796;
+  --ok: #6cc796;
+}
+
+/* Headings: same family, tighter tracking, weight does the talking. */
+.home-display {
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-weight: 600;
+}
+
+.home .mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.home ::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Inline text links: real underlines, like documents have. */
+.home .link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--hairline);
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+.home .link:hover {
+  text-decoration-color: currentColor;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -241,7 +313,7 @@ body {
   line-height: 0.9;
 }
 
-/* Micro typography helper — terminal metadata */
+/* Micro typography helper - terminal metadata */
 .tele {
   font-family: var(--font-mono), ui-monospace, monospace;
   text-transform: uppercase;
@@ -249,7 +321,7 @@ body {
 }
 
 /* ===========================================================================
-   TEXTURE — analog degradation engineered in CSS/SVG
+   TEXTURE - analog degradation engineered in CSS/SVG
 =========================================================================== */
 
 /* Global low-opacity mechanical noise grain (both substrates) */
@@ -261,7 +333,7 @@ body {
   opacity: 0.06;
 }
 
-/* CRT scanlines — dark substrate only (electron-beam sweep) */
+/* CRT scanlines - dark substrate only (electron-beam sweep) */
 .scanlines {
   background-image: repeating-linear-gradient(
     0deg,
@@ -286,7 +358,7 @@ body {
   mask-image: radial-gradient(130% 90% at 50% 0%, #000 55%, transparent 100%);
 }
 
-/* Hero backdrop: denser blueprint grid (flat — no glow, no gradient accent) */
+/* Hero backdrop: denser blueprint grid (flat - no glow, no gradient accent) */
 .glow-grid {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
