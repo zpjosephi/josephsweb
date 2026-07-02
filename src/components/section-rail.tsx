@@ -4,7 +4,7 @@ import { sectionIndex, sectionIds } from "@/data/sections";
 import { useActiveSection } from "@/lib/use-active-section";
 import { cn } from "@/lib/utils";
 
-// Vertical fig.01–06 index on the right edge. Highlights the active section.
+// Vertical fig.01-06 index on the right edge. Highlights the active section.
 export function SectionRail() {
   const active = useActiveSection(sectionIds);
 

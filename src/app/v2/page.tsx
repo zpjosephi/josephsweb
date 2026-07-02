@@ -129,7 +129,7 @@ export default function V2Page() {
           {/* =================================================== 01 / PROFILE */}
           <section id="profile" className="border-b-2 border-card-border">
             <div className="grid lg:grid-cols-[300px_1fr]">
-              {/* Portrait — left compartment */}
+              {/* Portrait - left compartment */}
               <div className="border-b-2 border-card-border p-6 lg:border-b-0 lg:border-r-2">
                 <div className="overflow-hidden border-2 border-card-border bg-[#0a0a0a]">
                   <Portrait mode="halftone" className="block h-auto w-full" />
@@ -140,7 +140,7 @@ export default function V2Page() {
                 </div>
               </div>
 
-              {/* Statement — right, asymmetric */}
+              {/* Statement - right, asymmetric */}
               <div className="p-6 sm:p-10">
                 <div className="tele text-[11px] text-accent">[ 01 / PROFILE ]</div>
                 <p
@@ -166,7 +166,7 @@ export default function V2Page() {
                   </p>
                 </div>
 
-                {/* Hanging numbered facts — not cards */}
+                {/* Hanging numbered facts - not cards */}
                 <dl className="mt-10 border-t-2 border-card-border">
                   {profilePoints.map((p) => (
                     <div
@@ -186,7 +186,7 @@ export default function V2Page() {
               </div>
             </div>
 
-            {/* Stats — bleeding numerals strip, full width */}
+            {/* Stats - bleeding numerals strip, full width */}
             <div className="grid grid-cols-2 gap-px border-t-2 border-card-border bg-card-border sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label} className="bg-background px-5 py-7">
@@ -232,7 +232,7 @@ export default function V2Page() {
               Career log
             </h2>
 
-            {/* Ledger — period column | record column */}
+            {/* Ledger - period column | record column */}
             <div className="mt-8 border-t-2 border-card-border">
               {roles.map((role) => (
                 <div
@@ -334,7 +334,7 @@ export default function V2Page() {
               Leadership &amp; comms
             </h2>
             <p className="mt-6 max-w-[58ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Most engineers can&apos;t present. I can — two years hosting campus
+              Most engineers can&apos;t present. I can: two years hosting campus
               events as MC, leading committees, and mentoring students.
             </p>
 
@@ -390,7 +390,7 @@ export default function V2Page() {
               Tech matrix
             </h2>
 
-            {/* Matrix table — group | items */}
+            {/* Matrix table - group | items */}
             <div className="mt-8 border-2 border-card-border">
               {skillGroups.map((g) => (
                 <div
@@ -455,7 +455,7 @@ export default function V2Page() {
 
             <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
               Open to internships, freelance, and full-time roles. Fastest way to
-              reach me is email — or grab my CV.
+              reach me is email, or grab my CV.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-px bg-card-border">

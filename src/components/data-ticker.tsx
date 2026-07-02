@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type Tick = { label: string; value: string; accent?: boolean };
 
 // Self-telemetry, not market data. Every token here sells Joseph and builds
-// trust in the first scroll — a recruiter reads "open to work / Jakarta / 03
+// trust in the first scroll - a recruiter reads "open to work / Jakarta / 03
 // shipped", not a speculative crypto price. The live local clock keeps the
 // "LIVE" badge honest without any external dependency.
 const FACTS: Tick[] = [
@@ -34,7 +34,7 @@ function Item({ t }: { t: Tick }) {
 
 // Thin self-telemetry strip beneath the hero. On-brand: numbers, in motion.
 export function DataTicker() {
-  // Live local clock (Asia/Jakarta) — set only after mount so server and client
+  // Live local clock (Asia/Jakarta) - set only after mount so server and client
   // markup match (no hydration drift).
   const [clock, setClock] = useState<string | null>(null);
 

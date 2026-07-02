@@ -61,10 +61,10 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        {/* Left — spec label: unit id over name */}
+        {/* Left - spec label: unit id over name */}
         <a href="#" className="group flex items-center gap-3 leading-none">
           <span className="tele border border-card-border px-1.5 py-1 text-[10px] text-accent">
-            J—01
+            J-01
           </span>
           <span className="leading-tight">
             <span className="tele block text-[9px] text-muted-foreground">
@@ -83,7 +83,7 @@ export function Navbar() {
           </span>
         </a>
 
-        {/* Right — numbered micro-nav (desktop) + hamburger (mobile) */}
+        {/* Right - numbered micro-nav (desktop) + hamburger (mobile) */}
         <div className="flex items-center gap-3 sm:gap-4">
           <ul className="hidden items-center md:flex">
             {links.map((link, i) => (
@@ -113,7 +113,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile dropdown — numbered manifest rows */}
+      {/* Mobile dropdown - numbered manifest rows */}
       {open && (
         <div className="border-t-2 border-card-border bg-background md:hidden">
           <ul className="mx-auto max-w-6xl px-4">

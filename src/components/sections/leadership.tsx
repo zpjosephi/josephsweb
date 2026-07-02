@@ -3,7 +3,7 @@ import { Section } from "@/components/section";
 import { activities, languages } from "@/data/experience";
 
 // The "communicates data" half of the story: public speaking, leadership,
-// mentoring — the soft skills most engineers lack, reframed as evidence.
+// mentoring - the soft skills most engineers lack, reframed as evidence.
 export function Leadership() {
   return (
     <Section
@@ -16,13 +16,13 @@ export function Leadership() {
         <p className="mb-10 max-w-[58ch] text-lg leading-relaxed text-muted-foreground">
           Most engineers can&apos;t present. I can. Two years hosting campus
           events as <span className="text-foreground">MC</span>, leading
-          committees, and mentoring students — proof I can run a room and{" "}
+          committees, and mentoring students, proof I can run a room and{" "}
           <span className="text-foreground">explain the work</span>, not just
           build it.
         </p>
       </Reveal>
 
-      {/* Activities — flat panels */}
+      {/* Activities - flat panels */}
       <div className="grid gap-px border-2 border-card-border bg-card-border sm:grid-cols-2">
         {activities.map((a, i) => (
           <Reveal key={a.org} delay={0.05 * i}>
@@ -48,7 +48,7 @@ export function Leadership() {
         ))}
       </div>
 
-      {/* Languages — instrument strip */}
+      {/* Languages - instrument strip */}
       <div className="mt-8">
         <div className="mb-px bg-background px-1 py-2 tele text-[10px] text-accent">
           {">> "}LANGUAGES

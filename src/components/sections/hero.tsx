@@ -18,11 +18,11 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-28">
-        {/* Masthead — manifest / issue line */}
+        {/* Masthead - manifest / issue line */}
         <div className="mb-10 flex items-center justify-between gap-3 border-y-2 border-card-border py-2 tele text-[10px] text-muted-foreground">
           <span className="text-foreground">JOSEPH IRAWAN</span>
           <span className="hidden sm:inline">PORTFOLIO / VOL.2026</span>
-          <span className="text-accent">JAKARTA — ID · 06°S</span>
+          <span className="text-accent">JAKARTA, ID · 06°S</span>
         </div>
 
         <Reveal>
@@ -32,7 +32,7 @@ export function Hero() {
           </p>
         </Reveal>
 
-        {/* Macro type — viewport-bleeding, uppercase, compressed leading */}
+        {/* Macro type - viewport-bleeding, uppercase, compressed leading */}
         <Reveal delay={0.05}>
           <h1
             className="display max-w-5xl font-normal"
@@ -90,7 +90,7 @@ export function Hero() {
           </div>
         </Reveal>
 
-        {/* Spec-sheet manifest — razor-thin grid dividers via gap:1px */}
+        {/* Spec-sheet manifest - razor-thin grid dividers via gap:1px */}
         <Reveal delay={0.2}>
           <dl className="mt-20 grid grid-cols-2 gap-px border border-card-border bg-card-border sm:grid-cols-4">
             {[

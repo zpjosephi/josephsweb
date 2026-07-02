@@ -66,7 +66,7 @@ export function SpecRail() {
           </div>
         </div>
 
-        {/* Numbered nav — vertical on desktop, horizontal scroll on mobile */}
+        {/* Numbered nav - vertical on desktop, horizontal scroll on mobile */}
         <nav className="flex-1 overflow-x-auto border-b-2 border-card-border lg:border-b-0 lg:py-4">
           <ul className="flex lg:block">
             {NAV.map((item) => {
@@ -104,7 +104,7 @@ export function SpecRail() {
           </ul>
         </nav>
 
-        {/* Footer telemetry — desktop only */}
+        {/* Footer telemetry - desktop only */}
         <div className="hidden p-4 lg:block">
           <dl className="space-y-1.5 tele text-[10px] text-muted-foreground">
             <div className="flex justify-between">

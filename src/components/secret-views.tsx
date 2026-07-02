@@ -69,9 +69,9 @@ export function SecretViews() {
           TOTAL VIEWS ·{" "}
           <span className="font-bold text-foreground">
             {!configured
-              ? "— store not connected"
+              ? "- store not connected"
               : views === null
-                ? "—"
+                ? "-"
                 : views.toLocaleString()}
           </span>{" "}
           · visitors, you not counted

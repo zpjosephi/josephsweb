@@ -30,7 +30,7 @@ function mulberry32(seed: number) {
   };
 }
 
-// Standard normal via Box–Muller, driven by the seeded PRNG.
+// Standard normal via Box-Muller, driven by the seeded PRNG.
 function normals(count: number, seed: number) {
   const rand = mulberry32(seed);
   const out: number[] = [];
@@ -55,7 +55,7 @@ export function DataViz() {
   );
 }
 
-// Interactive content only — reused by the /v2 layout without the Section frame.
+// Interactive content only - reused by the /v2 layout without the Section frame.
 export function DataVizPanel() {
   // Target correlation the visitor controls.
   const [r, setR] = useState(0.6);

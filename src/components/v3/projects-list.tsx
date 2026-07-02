@@ -6,7 +6,7 @@ import Link from "next/link";
 import { GithubIcon } from "@/components/icons";
 import { projects, type ProjectCategory } from "@/data/projects";
 
-// Muted pastel pairs per category — tokenized in globals.css (.v3 scope).
+// Muted pastel pairs per category - tokenized in globals.css (.v3 scope).
 const TAG: Record<ProjectCategory, { bg: string; fg: string; label: string }> = {
   engineering: {
     bg: "var(--tag-eng-bg)",
@@ -16,7 +16,7 @@ const TAG: Record<ProjectCategory, { bg: string; fg: string; label: string }> = 
   data: { bg: "var(--tag-data-bg)", fg: "var(--tag-data-fg)", label: "Data / Stats" },
 };
 
-// Projects as a stripped editorial accordion — hairline dividers, no boxes.
+// Projects as a stripped editorial accordion - hairline dividers, no boxes.
 export function ProjectsListV3() {
   const [open, setOpen] = useState<string | null>("xeleven");
 
@@ -67,7 +67,7 @@ export function ProjectsListV3() {
                     href={p.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${p.title} — open live site`}
+                    aria-label={`${p.title}, open live site`}
                     className="group/shot relative mb-8 block aspect-[1280/875] overflow-hidden rounded-xl border border-card-border bg-muted"
                   >
                     <Image

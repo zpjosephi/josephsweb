@@ -15,7 +15,7 @@ const filters: { key: Filter; label: string }[] = [
   { key: "data", label: "DATA" },
 ];
 
-// Projects as a declassified index/manifest — dense rows, not cards.
+// Projects as a declassified index/manifest - dense rows, not cards.
 // Click a row to declassify (expand) the full record.
 export function ProjectsManifest() {
   const [filter, setFilter] = useState<Filter>("all");

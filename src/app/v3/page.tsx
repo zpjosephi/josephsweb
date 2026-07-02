@@ -25,7 +25,7 @@ const facts = [
   {
     tag: "Engineering",
     title: "I build",
-    body: "Production-grade web apps end to end — from UI to API to deployment. CS background.",
+    body: "Production-grade web apps end to end, from UI to API to deployment. CS background.",
     bg: "#e1f3fe",
     fg: "#1f6c9f",
   },
@@ -194,7 +194,7 @@ export default function V3Page() {
                   <Portrait mode="grayscale" className="block h-auto w-full" />
                 </div>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-                  Joseph Irawan — Jakarta, ID
+                  Joseph Irawan · Jakarta, ID
                 </figcaption>
               </figure>
             </Reveal>
@@ -276,7 +276,7 @@ export default function V3Page() {
                     <h3 className="editorial text-xl font-normal">
                       {role.title}{" "}
                       <span className="text-muted-foreground">
-                        — {role.company}
+                        · {role.company}
                       </span>
                     </h3>
                     <ul className="mt-3 max-w-[68ch] space-y-2">
@@ -375,7 +375,7 @@ export default function V3Page() {
             </h2>
             <p className="mt-6 max-w-xl text-[16px] leading-[1.75] text-muted-foreground">
               Two years hosting campus events as MC, leading committees, and
-              mentoring first-year students — the communication half of the
+              mentoring first-year students, the communication half of the
               story most engineers skip.
             </p>
           </Reveal>
@@ -510,7 +510,7 @@ export default function V3Page() {
               </h2>
               <p className="mx-auto mt-7 max-w-md text-[16px] leading-[1.7] text-muted-foreground">
                 Open to internships, freelance, and full-time roles. The fastest
-                way to reach me is email — or grab my CV.
+                way to reach me is email, or grab my CV.
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <a

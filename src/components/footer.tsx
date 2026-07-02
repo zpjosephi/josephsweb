@@ -6,7 +6,7 @@ export function Footer() {
       <div aria-hidden className="hazard-stripe h-1.5 w-full opacity-80" />
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 sm:flex-row">
         <p className="tele text-[10px] text-muted-foreground">
-          © {site.shortName} <span className="text-accent">™</span> — END OF
+          © {site.shortName} <span className="text-accent">™</span> · END OF
           TRANSMISSION · BUILT W/ NEXT.JS
         </p>
         <div className="flex items-center gap-px bg-card-border">
