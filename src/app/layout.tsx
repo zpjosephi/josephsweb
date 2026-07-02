@@ -6,6 +6,7 @@ import {
   Geist,
   Bricolage_Grotesque,
   Schibsted_Grotesk,
+  Big_Shoulders,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -45,9 +46,16 @@ const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-// Front page (/): one grotesk for both display and body, weight does the work.
+// Quiet cut (/minimal): one grotesk for both display and body.
 const schibsted = Schibsted_Grotesk({
   variable: "--font-home",
+  subsets: ["latin"],
+});
+
+// Interactive front page (/): condensed poster display, variable weight so the
+// headline can flex under the cursor.
+const bigShoulders = Big_Shoulders({
+  variable: "--font-poster",
   subsets: ["latin"],
 });
 
@@ -86,7 +94,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <body
-        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} min-h-full flex flex-col`}
+        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} ${bigShoulders.variable} min-h-full flex flex-col`}
       >
         {/* Keyboard skip link - first focusable element, visible only on focus. */}
         <a
