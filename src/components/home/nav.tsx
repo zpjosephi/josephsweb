@@ -6,10 +6,10 @@ import { Moon, Sun } from "lucide-react";
 import { useMounted } from "@/lib/use-mounted";
 
 const links = [
-  { href: "/#work", label: "Work" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
+  { hash: "work", label: "Work" },
+  { hash: "experience", label: "Experience" },
+  { hash: "about", label: "About" },
+  { hash: "contact", label: "Contact" },
 ];
 
 function ThemeToggle() {
@@ -37,19 +37,21 @@ function ThemeToggle() {
   );
 }
 
-export function HomeNav() {
+// base = the page whose sections the anchors target ("/" for the main site,
+// "/minimal" when the nav sits on the quiet cut so links stay on that page).
+export function HomeNav({ base = "/" }: { base?: string }) {
   return (
     <header className="sticky top-0 z-40 border-b border-card-border bg-[var(--background)]/85 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-        <Link href="/" className="text-[15px] font-semibold tracking-tight">
+        <Link href={base} className="text-[15px] font-semibold tracking-tight">
           Joseph Irawan
         </Link>
         <div className="flex items-center gap-2 sm:gap-5">
           <ul className="hidden items-center gap-6 md:flex">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.hash}>
                 <Link
-                  href={l.href}
+                  href={`${base}#${l.hash}`}
                   className="text-[14px] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {l.label}
@@ -58,7 +60,7 @@ export function HomeNav() {
             ))}
           </ul>
           <Link
-            href="/#contact"
+            href={`${base}#contact`}
             className="text-[14px] text-muted-foreground transition-colors hover:text-foreground md:hidden"
           >
             Contact

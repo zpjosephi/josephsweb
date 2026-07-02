@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -468,10 +469,16 @@ function Contact() {
 
 /* ------------------------------------------------------------------ page */
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Minimal",
+  description:
+    "The quiet, typographic cut of Joseph Irawan's portfolio: same work, no theatrics.",
+};
+
+export default function MinimalHome() {
   return (
     <div id="top" className="home relative flex min-h-screen flex-col">
-      <HomeNav />
+      <HomeNav base="/minimal" />
       <main id="main-content" className="flex-1">
         <Hero />
         <Work />
@@ -485,13 +492,9 @@ export default function Home() {
             © {new Date().getFullYear()} {site.shortName}
           </p>
           <p>
-            Earlier designs of this site:{" "}
-            <Link href="/studio" className="link">
-              Studio
-            </Link>{" "}
-            and{" "}
-            <Link href="/lab" className="link">
-              Lab
+            This is the quiet cut.{" "}
+            <Link href="/" className="link">
+              Back to the interactive one
             </Link>
           </p>
         </div>
