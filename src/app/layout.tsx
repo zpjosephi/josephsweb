@@ -60,6 +60,7 @@ const bigShoulders = Big_Shoulders({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://josephirawan.vercel.app"),
   title: {
     default: site.shortName,
     template: `%s - ${site.shortName}`,
