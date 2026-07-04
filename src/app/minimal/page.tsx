@@ -115,7 +115,7 @@ function Work() {
         <Reveal className="mt-10">
           <Shot
             src="/projects/ceritabel.png"
-            alt="ceritabel: a regression results table with assumption checks and an AI explanation panel"
+            alt="ceritabel: dataset summary with a quality score, variable chips, and an AI insight panel"
             priority
             aspect="aspect-[16/9]"
             sizes="(max-width: 1024px) 92vw, 976px"
@@ -193,7 +193,7 @@ function Work() {
             </div>
             <Shot
               src="/projects/xeleven.png"
-              alt="xEleven: Premier League standings dashboard with club form and stats"
+              alt="xEleven: Premier League overview with a season selector and the toolbox of analytics tools"
               sizes="(max-width: 768px) 92vw, 480px"
             />
           </div>

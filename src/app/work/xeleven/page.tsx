@@ -56,7 +56,7 @@ export default function XelevenCaseStudy() {
       ]}
       image={{
         src: "/projects/xeleven.png",
-        alt: "xEleven dashboard with Premier League standings and club form",
+        alt: "xEleven overview page with a season selector and the toolbox of analytics tools",
       }}
       liveUrl="https://epl-xeleven.vercel.app/"
       chapters={chapters}

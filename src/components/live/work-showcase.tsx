@@ -35,7 +35,7 @@ const entries: Entry[] = [
       "Full statistical workflow in the browser: EDA, hypothesis tests, OLS with assumption checks, panel and time-series models. Unit-tested against R, about 80 tests.",
     stack: "Next.js, TypeScript, Vitest, Gemini / Groq",
     image: "/projects/ceritabel.png",
-    alt: "ceritabel: regression output with assumption checks and AI explanation",
+    alt: "ceritabel: dataset summary with a quality score, variable chips, and an AI insight panel",
     liveUrl: "https://ceritabel.vercel.app/analyze?sample=siswa",
   },
   {
@@ -45,7 +45,7 @@ const entries: Entry[] = [
       "Premier League analytics and season management: nine tools over a live football-data API, including a full Manager Mode. Born as my thesis.",
     stack: "Next.js, TypeScript, Recharts",
     image: "/projects/xeleven.png",
-    alt: "xEleven: Premier League standings dashboard",
+    alt: "xEleven: Premier League overview with a season selector and the toolbox of analytics tools",
     liveUrl: "https://epl-xeleven.vercel.app/",
     caseStudyUrl: "/work/xeleven",
   },
