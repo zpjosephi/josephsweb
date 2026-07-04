@@ -36,7 +36,7 @@ const entries: Entry[] = [
     stack: "Next.js, TypeScript, Vitest, Gemini / Groq",
     image: "/projects/ceritabel.png",
     alt: "ceritabel: regression output with assumption checks and AI explanation",
-    liveUrl: "https://ceritabel.vercel.app/",
+    liveUrl: "https://ceritabel.vercel.app/analyze?sample=siswa",
   },
   {
     slug: "xeleven",

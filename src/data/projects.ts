@@ -99,6 +99,8 @@ export const projects: Project[] = [
       "Exports ready-to-run Python (pandas / statsmodels) and R scripts that reproduce the exact session: same cleaning steps, same models",
       "Privacy-first: files are parsed and every statistic is computed in your browser; only a compact summary, never the raw rows, is sent to the AI",
       "The AI explains each result in plain language but only interprets the numbers the app computed, never inventing its own; switchable between Gemini and Groq, fully bilingual (Indonesian / English)",
+      "One click exports the whole analysis as a clean printable report: highlights, per-column stats, correlations, the fitted models (Pooled/FE/RE with a Hausman test for panel data), and the AI reading",
+      "Accessibility-minded charts: a colorblind-safe mode swaps the correlation heatmap to a scale everyone can read",
     ],
     tech: [
       "Next.js (App Router)",
@@ -109,7 +111,7 @@ export const projects: Project[] = [
       "Gemini / Groq",
       "Tailwind CSS",
     ],
-    liveUrl: "https://ceritabel.vercel.app/",
+    liveUrl: "https://ceritabel.vercel.app/analyze?sample=siswa",
     image: "/projects/ceritabel.png",
     featured: true,
   },

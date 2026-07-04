@@ -88,7 +88,7 @@ export function CommandPalette() {
       },
       { id: "github", group: "Actions", label: "Open GitHub", run: (c) => external(site.socials.github)(c) },
       { id: "linkedin", group: "Actions", label: "Open LinkedIn", run: (c) => external(site.socials.linkedin)(c) },
-      { id: "ceritabel", group: "Projects", label: "ceritabel", hint: "live app", keywords: "statistics regression", run: (c) => external("https://ceritabel.vercel.app/")(c) },
+      { id: "ceritabel", group: "Projects", label: "ceritabel", hint: "live app", keywords: "statistics regression", run: (c) => external("https://ceritabel.vercel.app/analyze?sample=siswa")(c) },
       { id: "xeleven", group: "Projects", label: "xEleven", hint: "live app", keywords: "football premier league", run: (c) => external("https://epl-xeleven.vercel.app/")(c) },
       { id: "xeleven-case", group: "Projects", label: "xEleven case study", run: (c) => internal("/work/xeleven")(c) },
       { id: "bakery", group: "Projects", label: "Bakery Kita", hint: "live app", keywords: "ecommerce qris", run: (c) => external("https://bakery-kita.vercel.app/")(c) },

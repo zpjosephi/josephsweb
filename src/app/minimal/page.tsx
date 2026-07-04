@@ -157,7 +157,7 @@ function Work() {
                 Links
               </p>
               <div className="mt-1.5">
-                <ExternalLink href="https://ceritabel.vercel.app/">
+                <ExternalLink href="https://ceritabel.vercel.app/analyze?sample=siswa">
                   Open live app
                 </ExternalLink>
               </div>
