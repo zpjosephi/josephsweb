@@ -12,6 +12,7 @@ import { CommandPalette } from "@/components/live/palette";
 import { EmailCopy } from "@/components/live/email-copy";
 import { site } from "@/lib/site";
 import { roles, education, certifications } from "@/data/experience";
+import { toolkit } from "@/data/skills";
 
 export default function Home() {
   return (
@@ -132,6 +133,11 @@ export default function Home() {
                           <li key={b}>{b}</li>
                         ))}
                       </ul>
+                      {role.tools.length > 0 && (
+                        <p className="mono mt-4 text-[12.5px] leading-[1.7] text-muted-foreground">
+                          {role.tools.join(" / ")}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </Reveal>
@@ -193,6 +199,28 @@ export default function Home() {
                   Bahasa Indonesia natively, Javanese fluently, English at
                   professional working level.
                 </p>
+              </div>
+              <div className="mt-12 max-w-[58ch]">
+                <h3 className="text-[17px] font-semibold tracking-tight">
+                  What I work with
+                </h3>
+                <p className="mt-2 text-[15px] leading-[1.6] text-muted-foreground">
+                  The degree carries the theory; most of these were picked up
+                  outside the classroom, by shipping.
+                </p>
+                <dl className="mt-5 divide-y divide-card-border border-y border-card-border">
+                  {toolkit.map((row) => (
+                    <div
+                      key={row.label}
+                      className="grid gap-1 py-4 sm:grid-cols-[150px_1fr] sm:gap-6"
+                    >
+                      <dt className="mono pt-0.5 text-[12.5px] text-muted-foreground">
+                        {row.label}
+                      </dt>
+                      <dd className="text-[15px] leading-[1.6]">{row.body}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </Reveal>
             <Reveal delay={0.08}>
