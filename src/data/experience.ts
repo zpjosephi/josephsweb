@@ -59,7 +59,7 @@ export const education: EducationEntry = {
     "Computational Biology (BioPython)",
     "Software Engineering",
     "Object-Oriented Programming (Java)",
-    "Web Programming",
+    "Web Programming (Laravel)",
     "UI/UX",
   ],
 };
