@@ -32,7 +32,7 @@ const entries: Entry[] = [
     slug: "ceritabel",
     title: "ceritabel",
     blurb:
-      "Full statistical workflow in the browser: EDA, hypothesis tests, OLS with assumption checks, panel and time-series models. Unit-tested against R, about 80 tests.",
+      "Full statistical workflow in the browser: EDA, hypothesis tests, OLS with assumption checks, panel models and time-series analysis. About 80 unit tests, p-values checked against R.",
     stack: "Next.js, TypeScript, Vitest, Gemini / Groq",
     image: "/projects/ceritabel.png",
     alt: "ceritabel: dataset summary with a quality score, variable chips, and an AI insight panel",
@@ -42,7 +42,7 @@ const entries: Entry[] = [
     slug: "xeleven",
     title: "xEleven",
     blurb:
-      "Premier League analytics and season management: nine tools over a live football-data API, including a full Manager Mode. Born as my thesis.",
+      "Premier League analytics and season management: nine tools over ten seasons of Premier League data, including a full Manager Mode. Born as my thesis.",
     stack: "Next.js, TypeScript, Recharts",
     image: "/projects/xeleven.png",
     alt: "xEleven: Premier League overview with a season selector and the toolbox of analytics tools",
@@ -64,7 +64,7 @@ const entries: Entry[] = [
     slug: "after-hours",
     title: "After hours",
     blurb:
-      "Real-time 3D experiment: a coder on a floating island, hand-written GLSL shaders, a day/night toggle, all models under 1MB.",
+      "Real-time 3D experiment: a coder on a floating island, hand-written GLSL shaders, a day/night toggle, thousands of grass blades drawn with instancing.",
     stack: "Three.js, react-three-fiber, GLSL",
     image: "/projects/after-hours.png",
     alt: "After hours: 3D floating island scene at night",

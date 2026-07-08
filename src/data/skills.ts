@@ -13,7 +13,7 @@ export type ToolkitRow = {
 export const toolkit: ToolkitRow[] = [
   {
     label: "Statistics",
-    body: "R, Python with pandas and scikit-learn, hypothesis testing, regression, panel and time-series models.",
+    body: "R, Python with pandas and scikit-learn, hypothesis testing, regression, panel models, time-series analysis.",
   },
   {
     label: "Engineering",

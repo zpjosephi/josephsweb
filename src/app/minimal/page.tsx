@@ -128,13 +128,14 @@ function Work() {
               <p className="mt-3 max-w-[62ch] text-[15.5px] leading-[1.65] text-muted-foreground">
                 Upload a spreadsheet and it runs the whole statistical workflow
                 in your browser: cleaning, EDA, hypothesis tests, OLS regression
-                with the classical assumption checks, plus panel and time-series
-                models. An AI layer then explains the results in plain language.
+                with the classical assumption checks, plus panel models and
+                time-series analysis. An AI layer then explains the results in
+                plain language.
               </p>
               <ul className="mt-4 max-w-[62ch] list-disc space-y-1.5 pl-5 text-[15px] leading-[1.6] text-muted-foreground marker:text-hairline">
                 <li>
-                  The inference engine is hand-built and unit-tested against R
-                  reference values, about 80 tests.
+                  The inference engine is hand-built; about 80 unit tests, with
+                  its p-values verified against R reference values.
                 </li>
                 <li>
                   Privacy-first: raw rows never leave the browser, only compact
@@ -173,10 +174,10 @@ function Work() {
                 xEleven
               </h3>
               <p className="mt-3 text-[15.5px] leading-[1.65] text-muted-foreground">
-                Premier League analytics for the 2025/26 season: nine tools over
-                a live football-data API, from standings and player scouting to
-                a title-race chart and a full season Manager Mode. It started as
-                my thesis and kept growing after submission.
+                Premier League analytics across ten seasons of data: nine tools,
+                from standings and player scouting to a title-race chart and a
+                full season Manager Mode. It started as my thesis and kept
+                growing after submission.
               </p>
               <Stack items="Next.js, TypeScript, Recharts, football-data.org API" />
               <div className="mt-5 flex flex-wrap items-center gap-5">
@@ -241,7 +242,8 @@ function Work() {
             <p className="mt-2.5 text-[15px] leading-[1.6] text-muted-foreground">
               A real-time 3D experiment: a coder on a floating island, with
               hand-written GLSL shaders for the water and grass, a day/night
-              toggle the whole scene reacts to, and models compressed under 1MB.
+              toggle the whole scene reacts to, and thousands of grass blades
+              drawn with instancing.
             </p>
             <Stack items="Three.js, react-three-fiber, GLSL, Next.js" />
             <div className="mt-4">

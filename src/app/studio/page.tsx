@@ -31,7 +31,7 @@ const stats: Stat[] = [
   { value: 4, pad: 2, label: "projects shipped, all live" },
   { value: 1000, comma: true, suffix: "+", label: "companies mapped at LPEI" },
   { value: 2, pad: 2, label: "disciplines, one engineer" },
-  { value: 80, prefix: "~", label: "unit tests checked against R" },
+  { value: 80, prefix: "~", label: "unit tests on the stats engine" },
 ];
 
 type Fact = { k: string; t: string; b: string; accent?: boolean };

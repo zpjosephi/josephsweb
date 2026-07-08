@@ -18,8 +18,8 @@ import { projects, type Project } from "@/data/projects";
 const METRIC: Record<string, { value: string; label: string }> = {
   xeleven: { value: "9", label: "tools, one app" },
   bakery: { value: "E2E", label: "commerce + QRIS" },
-  ceritabel: { value: "~80", label: "tests vs R" },
-  "after-hours": { value: "<1MB", label: "real-time 3D" },
+  ceritabel: { value: "~80", label: "unit tests" },
+  "after-hours": { value: "4", label: "hand-written shaders" },
 };
 
 function metricFor(p: Project) {

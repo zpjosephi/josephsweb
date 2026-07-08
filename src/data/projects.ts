@@ -28,7 +28,7 @@ export const projects: Project[] = [
     title: "xEleven: Premier League Analytics",
     category: "data",
     summary:
-      "The project I spent the most time on. It's a Premier League analytics and season-management app for the 2025/26 season that brings nine interactive tools together in one place, from live standings and player scouting to a full season Manager Mode.",
+      "The project I spent the most time on. It's a Premier League analytics and season-management app that brings nine interactive tools together in one place, from standings and player scouting to a full season Manager Mode, built on ten seasons of match data (2016/17 to 2025/26).",
     highlights: [
       "Overview dashboard with full 20-club standings (P/W/D/L, GF/GA, GD, Pts) and recent form",
       "Top scorers and assist leaders, with goal contributions and club crests",
@@ -87,14 +87,14 @@ export const projects: Project[] = [
     title: "ceritabel: AI Data Analysis",
     category: "data",
     summary:
-      "A free, privacy-first web app that turns a raw spreadsheet into a readable statistical analysis. Drop in a CSV or Excel file and the full workflow (cleaning, EDA, hypothesis tests, regression, and panel or time-series models) runs entirely in your browser, then an AI explains what the numbers mean in plain language. The statistics engine is hand-built and unit-tested against R.",
+      "A free, privacy-first web app that turns a raw spreadsheet into a readable statistical analysis. Drop in a CSV or Excel file and the full workflow (cleaning, EDA, hypothesis tests, regression, and panel or time-series analysis) runs entirely in your browser, then an AI explains what the numbers mean in plain language. The inference engine is hand-built, with p-values unit-tested against R.",
     highlights: [
       "Guided flow from upload to insight: a 0-100 data-quality scan, one-click auto-clean, and a reversible cleaning log where any step can be undone",
       "Detects whether the data is cross-sectional, a time series, or a panel and tailors the analysis accordingly (with manual override)",
       "Hand-built inference engine (Welch t-test, one-way ANOVA, chi-square, and correlation), each with exact p-values, confidence intervals, and effect sizes (Cohen's d, η², Cramér's V)",
       "Multiple OLS regression with a full coefficient table (per-term t-tests, adjusted R², overall F) and the four classical assumption checks: Jarque-Bera, VIF, Breusch-Pagan, and Durbin-Watson",
       "Panel models (Pooled / Fixed Effects / Random Effects with a Hausman test) and time-series analysis (trend, moving average, period-over-period change, autocorrelation)",
-      "The whole statistics engine is unit-tested against R reference values (~80 tests), so the numbers line up with what you'd get in R",
+      "About 80 unit tests cover the engine, with the hypothesis-test p-values verified against R output (t.test, aov, chisq.test, cor.test)",
       "Charts: histograms, a correlation heatmap, scatter plots with a fitted regression line, and time-series lines",
       "Exports ready-to-run Python (pandas / statsmodels) and R scripts that reproduce the exact session: same cleaning steps, same models",
       "Privacy-first: files are parsed and every statistic is computed in your browser; only a compact summary, never the raw rows, is sent to the AI",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
       "A full real-time scene in the browser with react-three-fiber: a floating island, a waterfall pouring into the cloud sea, drifting clouds, and a rigged figure typing on a laptop",
       "A day/night toggle that eases the whole scene at once: sun into moon, golden sky into stars, with paper lanterns, fireflies, an owl, and the occasional shooting star coming out at night",
       "Hand-written GLSL shaders for the water, the grass, and the waterfall",
-      "Built to stay light: 3D models compressed under 1MB, thousands of grass blades drawn with instancing, and a render resolution that adapts to the GPU",
+      "Built to keep frames up: thousands of grass blades drawn with instancing and a render resolution that adapts to the GPU",
     ],
     tech: ["Three.js", "react-three-fiber", "GLSL", "Next.js", "TypeScript"],
     liveUrl: "https://afterhours-3d.vercel.app/",
