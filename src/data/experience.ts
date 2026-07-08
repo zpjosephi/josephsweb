@@ -17,10 +17,10 @@ export const roles: Role[] = [
     location: "South Jakarta, ID",
     period: "Mar 2025 - Feb 2026",
     bullets: [
-      "Wrote market-research reports (Kajian) on export commodities, tracking export trends, market shifts, and macroeconomic drivers to inform business strategy.",
-      "Automated the leads-generation workflow that mapped and routed 1,000+ prospective debtor companies to the right business units.",
+      "Fulfilled Leads Requests from other divisions, compiling Excel export profiles (buyers, three-year export growth, HS-code breakdowns) for 1,000+ prospective debtor companies.",
+      "Wrote market studies (Kajian) on requested HS codes, processing trade data into chart packs (world and Indonesia exports, top exporters, destination growth) and researching the drivers behind each movement.",
       "Built interactive Tableau dashboards that auto-generated the charts for those economic reports, removing manual reporting work.",
-      "Scraped macroeconomic data from the BPS (Statistics Indonesia) portal into Excel pivot tables for faster analysis.",
+      "Scraped Indonesia's export-import data from the BPS portal into Excel pivot tables (tens of millions of rows), so chart data no longer had to be downloaded by hand.",
       "Cleaned and validated the full company database so the numbers were reliable before management acted on them.",
     ],
     tools: ["Tableau", "Python", "Excel", "SQL", "Web scraping", "Figma"],

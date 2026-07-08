@@ -275,10 +275,10 @@ const rows: Row[] = [
     title: "Data Analyst Intern",
     org: "Indonesia Eximbank (LPEI)",
     points: [
-      "Wrote market research (Kajian) on export commodities: trends, market shifts, and the macroeconomic drivers behind them.",
-      "Automated a leads pipeline that mapped and routed 1,000+ prospective debtor companies to the right business units.",
+      "Fulfilled Leads Requests from other divisions: Excel export profiles for 1,000+ prospective debtor companies.",
+      "Wrote market studies (Kajian) on requested HS codes, turning trade data into charts and researching the drivers behind each movement.",
       "Built Tableau dashboards that generate the charts for economic reports automatically, replacing manual work.",
-      "Scraped macroeconomic data from the BPS (Statistics Indonesia) portal into Excel pivot tables for faster analysis.",
+      "Scraped Indonesia's export-import data from the BPS portal into Excel pivot tables, tens of millions of rows.",
     ],
   },
   {
