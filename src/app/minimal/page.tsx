@@ -240,10 +240,10 @@ function Work() {
               After hours
             </h3>
             <p className="mt-2.5 text-[15px] leading-[1.6] text-muted-foreground">
-              A real-time 3D experiment: a coder on a floating island, with
-              hand-written GLSL shaders for the water and grass, a day/night
-              toggle the whole scene reacts to, and thousands of grass blades
-              drawn with instancing.
+              A first go at real-time 3D, out of pure curiosity: a coder on a
+              floating island, with hand-written GLSL shaders for the water and
+              grass, a day/night toggle the whole scene reacts to, and thousands
+              of grass blades drawn with instancing.
             </p>
             <Stack items="Three.js, react-three-fiber, GLSL, Next.js" />
             <div className="mt-4">

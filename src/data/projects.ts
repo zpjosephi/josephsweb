@@ -121,7 +121,7 @@ export const projects: Project[] = [
     category: "engineering",
     badge: "Experiment",
     summary:
-      "A real-time 3D scene I built for the fun of it: a lone coder on a floating island above the clouds, with a day/night toggle the whole world reacts to. Not a product, more a place to push what a browser can render in real time.",
+      "My first time touching 3D, built purely to see what it's like: a lone coder on a floating island above the clouds, with a day/night toggle the whole world reacts to. Not a product, just curiosity about what a browser can render in real time.",
     highlights: [
       "A full real-time scene in the browser with react-three-fiber: a floating island, a waterfall pouring into the cloud sea, drifting clouds, and a rigged figure typing on a laptop",
       "A day/night toggle that eases the whole scene at once: sun into moon, golden sky into stars, with paper lanterns, fireflies, an owl, and the occasional shooting star coming out at night",

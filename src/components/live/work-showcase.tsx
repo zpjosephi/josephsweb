@@ -64,7 +64,7 @@ const entries: Entry[] = [
     slug: "after-hours",
     title: "After hours",
     blurb:
-      "Real-time 3D experiment: a coder on a floating island, hand-written GLSL shaders, a day/night toggle, thousands of grass blades drawn with instancing.",
+      "A first go at real-time 3D, out of pure curiosity: a coder on a floating island, hand-written GLSL shaders, a day/night toggle, thousands of grass blades drawn with instancing.",
     stack: "Three.js, react-three-fiber, GLSL",
     image: "/projects/after-hours.png",
     alt: "After hours: 3D floating island scene at night",
