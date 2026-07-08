@@ -275,7 +275,7 @@ const rows: Row[] = [
     title: "Data Analyst Intern",
     org: "Indonesia Eximbank (LPEI)",
     points: [
-      "Fulfilled Leads Requests from other divisions: Excel export profiles for 1,000+ prospective debtor companies.",
+      "Fulfilled Leads Requests from other divisions: export profiles for 1,000+ prospective debtor companies, with an Excel macro that builds the deliverable PowerPoint.",
       "Wrote market studies (Kajian) on requested HS codes, turning trade data into charts and researching the drivers behind each movement.",
       "Built Tableau dashboards that generate the charts for economic reports automatically, replacing manual work.",
       "Scraped Indonesia's export-import data from the BPS portal into Excel pivot tables, tens of millions of rows.",
