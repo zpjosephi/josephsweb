@@ -5,6 +5,7 @@ import { openPalette } from "@/components/live/palette";
 
 const links = [
   { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
