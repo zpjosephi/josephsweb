@@ -341,8 +341,8 @@ function Experience() {
         </div>
         <Reveal>
           <p className="max-w-[70ch] border-t border-card-border pt-6 text-[14px] leading-[1.6] text-muted-foreground">
-            Certifications: AWS Academy Cloud Foundations and Cloud
-            Architecting, plus Progate fundamentals in Python and JavaScript.
+            Certifications: AWS Certified Cloud Practitioner (valid through
+            2027), plus Progate fundamentals in Python and JavaScript.
           </p>
         </Reveal>
       </div>
@@ -359,7 +359,7 @@ const toolbox = [
     k: "Data & statistics",
     v: "PostgreSQL / Supabase, Tableau, Excel, regression, hypothesis testing, panel data",
   },
-  { k: "Tools & cloud", v: "Git / GitHub, Figma, Vercel, AWS (Academy)" },
+  { k: "Tools & cloud", v: "Git / GitHub, Figma, Vercel, AWS (Cloud Practitioner)" },
 ];
 
 function About() {

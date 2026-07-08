@@ -50,6 +50,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Tools & Cloud",
-    items: ["Figma", "Git", "Vercel", "AWS (Academy)"],
+    items: ["Figma", "Git", "Vercel", "AWS (Cloud Practitioner)"],
   },
 ];

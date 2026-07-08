@@ -37,7 +37,7 @@ const edges: [string, string][] = [
   ["Excel", "SQL"],
   ["Figma", "Tailwind CSS"],
   ["Git", "Vercel"],
-  ["Vercel", "AWS (Academy)"],
+  ["Vercel", "AWS (Cloud Practitioner)"],
 ];
 
 function neighborsOf(skill: string) {

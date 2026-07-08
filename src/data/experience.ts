@@ -65,8 +65,7 @@ export const education: EducationEntry = {
 };
 
 export const certifications: string[] = [
-  "AWS Academy Cloud Foundations",
-  "AWS Academy Cloud Architecting",
+  "AWS Certified Cloud Practitioner (through 2027)",
   "Progate · JavaScript Fundamental",
   "Progate · Python Fundamental",
 ];
