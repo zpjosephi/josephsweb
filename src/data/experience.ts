@@ -52,9 +52,13 @@ export const education: EducationEntry = {
   period: "Expected Aug 2026",
   coursework: [
     "Machine Learning",
+    "Deep Learning (TensorFlow, Keras)",
     "Artificial Intelligence",
     "Data Analysis",
+    "Text & Data Mining",
+    "Computational Biology (BioPython)",
     "Software Engineering",
+    "Object-Oriented Programming (Java)",
     "Web Programming",
     "UI/UX",
   ],

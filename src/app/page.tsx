@@ -160,7 +160,7 @@ export default function Home() {
                     </h3>
                     <p className="mt-3 max-w-[70ch] text-[15px] leading-[1.6] text-muted-foreground">
                       Double degree. Coursework spans{" "}
-                      {education.coursework.join(", ").toLowerCase()}.
+                      {education.coursework.join(", ")}.
                     </p>
                   </div>
                 </div>
