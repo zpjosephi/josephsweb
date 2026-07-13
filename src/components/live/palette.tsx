@@ -4,13 +4,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { site } from "@/lib/site";
 
-// Hand-rolled command palette: Ctrl/Cmd+K (or the nav button) opens a modal
-// with type-to-filter and full keyboard navigation. No dependency; the whole
-// thing is a focus-trapped dialog with a listbox.
-
-export function openPalette() {
-  window.dispatchEvent(new CustomEvent("live:palette"));
-}
+// Hand-rolled command palette: Ctrl/Cmd+K opens a modal with type-to-filter
+// and full keyboard navigation. No dependency; the whole thing is a
+// focus-trapped dialog with a listbox. Deliberately unadvertised - a keyboard
+// person finds it, everyone else scrolls.
 
 type Item = {
   id: string;
@@ -112,7 +109,7 @@ export function CommandPalette() {
     );
   }, [items, query]);
 
-  // open triggers: hotkey + custom event from the nav button
+  // open trigger: the hotkey, nothing else
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -123,16 +120,8 @@ export function CommandPalette() {
         });
       }
     };
-    const onOpen = () => {
-      restoreRef.current = document.activeElement as HTMLElement;
-      setOpen(true);
-    };
     window.addEventListener("keydown", onKey);
-    window.addEventListener("live:palette", onOpen);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      window.removeEventListener("live:palette", onOpen);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   // focus + scroll lock while open

@@ -6,6 +6,7 @@ import {
   Geist,
   Bricolage_Grotesque,
   Schibsted_Grotesk,
+  Mona_Sans,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -39,12 +40,18 @@ const geist = Geist({
   subsets: ["latin"],
 });
 
-// Display headings on /studio and the live front page (/): characterful
-// humanist grotesque, variable weight so the live headline flexes under the
-// cursor.
+// Display headings on /studio: characterful humanist grotesque.
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
+});
+
+// Live front page (/) display: wide-cut grotesque. The wdth axis is what
+// gives the headline its stance; wght is what the kinetic title animates.
+const mona = Mona_Sans({
+  variable: "--font-mona",
+  subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 // Quiet cut (/minimal): one grotesk for both display and body.
@@ -89,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <body
-        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} min-h-full flex flex-col`}
+        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} ${mona.variable} min-h-full flex flex-col`}
       >
         {/* Keyboard skip link - first focusable element, visible only on focus. */}
         <a

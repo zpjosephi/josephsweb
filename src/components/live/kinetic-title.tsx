@@ -2,18 +2,19 @@
 
 import { useEffect, useRef } from "react";
 
-// Headline whose letters swell in weight near the cursor. Bricolage Grotesque
-// is a variable font (wght 200-800), so the swell is one CSS custom property
-// per letter; widths breathe a little with the weight, which is the charm.
-// Letter positions are re-measured only on resize; per-frame work is a loop of
-// distance checks writing font-variation-settings, no React re-renders.
+// Headline whose letters swell in weight near the cursor. Mona Sans is a
+// variable font (wght 200-900, wdth 75-125); the swell is one CSS custom
+// property per letter, width stays at the wide display cut. Letter positions
+// are re-measured only on resize; per-frame work is a loop of distance checks
+// writing font-variation-settings, no React re-renders.
 //
 // Accessibility: the h1 carries the full text via aria-label; the letter spans
 // are presentation-only. Reduced motion and touch devices keep the static
 // weight.
 
-const BASE_WGHT = 600; // resting weight, matches .live-display
-const PEAK_WGHT = 800; // Bricolage wght ceiling
+const BASE_WGHT = 650; // resting weight, matches .live-display
+const PEAK_WGHT = 880;
+const WDTH = 120; // display cut, matches .live-display
 const RADIUS = 150;
 
 type LetterBox = { el: HTMLSpanElement; cx: number; cy: number };
@@ -61,7 +62,7 @@ export function KineticTitle({
         const d = Math.hypot(b.cx - px, b.cy - py);
         const t = Math.max(0, 1 - d / RADIUS);
         const wght = Math.round(BASE_WGHT + (PEAK_WGHT - BASE_WGHT) * t * t);
-        b.el.style.fontVariationSettings = `"opsz" 40, "wght" ${wght}`;
+        b.el.style.fontVariationSettings = `"wdth" ${WDTH}, "wght" ${wght}`;
       }
       dirty = false;
     };
@@ -104,15 +105,21 @@ export function KineticTitle({
           aria-hidden
           className={`block ${li === accentLineIndex ? "text-accent" : ""}`}
         >
-          {Array.from(line).map((ch, ci) =>
-            ch === " " ? (
-              <span key={ci}> </span>
-            ) : (
-              <span key={ci} data-letter className="inline-block">
-                {ch}
+          {/* letters are inline-blocks, so group them per word (nowrap) and
+              keep real spaces between groups - otherwise the browser may
+              break a line mid-word */}
+          {line.split(" ").map((word, wi, words) => (
+            <span key={wi}>
+              <span className="inline-block whitespace-nowrap">
+                {Array.from(word).map((ch, ci) => (
+                  <span key={ci} data-letter className="inline-block">
+                    {ch}
+                  </span>
+                ))}
               </span>
-            )
-          )}
+              {wi < words.length - 1 ? " " : null}
+            </span>
+          ))}
         </span>
       ))}
     </h1>

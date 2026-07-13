@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { Portrait } from "@/components/portrait";
-import { LiveNav } from "@/components/live/nav";
 import { HeroField } from "@/components/live/hero-field";
 import { KineticTitle } from "@/components/live/kinetic-title";
 import { WorkShowcase } from "@/components/live/work-showcase";
@@ -17,20 +16,23 @@ import { roles, education, certifications } from "@/data/experience";
 export default function Home() {
   return (
     <div className="live relative flex min-h-screen flex-col">
-      <LiveNav />
       <CommandPalette />
 
       <main id="main-content" className="flex-1">
         {/* ========================================================== HERO */}
         <HeroField>
+          {/* no navbar: the name sits in the hero like a plate on the instrument */}
+          <p className="shell absolute inset-x-0 top-0 flex h-20 items-center text-[15px] font-medium">
+            Joseph Irawan
+          </p>
           <div
             data-kinetic-zone
-            className="shell flex min-h-[calc(100dvh-4rem)] flex-col justify-end pb-[clamp(2.5rem,9vh,6rem)] pt-28"
+            className="shell flex min-h-dvh flex-col justify-end pb-[clamp(2.5rem,9vh,6rem)] pt-28"
           >
             <KineticTitle
               lines={["Software that", "understands", "data."]}
               accentLineIndex={2}
-              className="live-display text-[clamp(3.2rem,9vw,6rem)]"
+              className="live-display text-[clamp(2.4rem,12vw,6rem)] sm:text-[clamp(3rem,9vw,6rem)]"
             />
             <p className="mt-6 max-w-[48ch] text-[16.5px] leading-[1.65] text-muted-foreground">
               Move around: the scatter is you, and the line is least squares,
