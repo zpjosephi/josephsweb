@@ -32,7 +32,7 @@ export default function Home() {
             <KineticTitle
               lines={["Software that", "understands", "data."]}
               accentLineIndex={2}
-              className="live-display text-[clamp(2.4rem,12vw,6rem)] sm:text-[clamp(3rem,9vw,6rem)]"
+              className="live-display text-[clamp(2.1rem,10vw,3rem)] sm:text-[clamp(2.5rem,5.5vw,4rem)]"
             />
             <p className="mt-6 max-w-[48ch] text-[16.5px] leading-[1.65] text-muted-foreground">
               Move around: the scatter is you, and the line is least squares,
@@ -60,7 +60,7 @@ export default function Home() {
         {/* ========================================================== WORK */}
         <section id="work" className="shell py-[clamp(4rem,8vw,7rem)]">
           <Reveal>
-            <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+            <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
               Selected work
             </h2>
             <p className="mt-4 max-w-[54ch] text-[15px] leading-[1.6] text-muted-foreground">
@@ -77,7 +77,7 @@ export default function Home() {
         <section className="border-t border-card-border">
           <div className="shell grid gap-12 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
             <Reveal>
-              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+              <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
                 Statistics you can poke
               </h2>
               <div className="mt-6 max-w-[52ch] space-y-4 text-[15.5px] leading-[1.7] text-muted-foreground">
@@ -108,7 +108,7 @@ export default function Home() {
         <section id="experience" className="border-t border-card-border">
           <div className="shell py-[clamp(4rem,8vw,7rem)]">
             <Reveal>
-              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+              <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
                 Experience
               </h2>
             </Reveal>
@@ -180,7 +180,7 @@ export default function Home() {
         <section id="toolkit" className="border-t border-card-border">
           <div className="shell py-[clamp(4rem,8vw,7rem)]">
             <Reveal>
-              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+              <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
                 Toolkit
               </h2>
               <p className="mt-4 max-w-[56ch] text-[15px] leading-[1.6] text-muted-foreground">
@@ -200,7 +200,7 @@ export default function Home() {
         <section id="about" className="border-t border-card-border">
           <div className="shell grid gap-12 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-[1fr_300px] lg:gap-20">
             <Reveal>
-              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+              <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
                 About
               </h2>
               <div className="mt-6 max-w-[58ch] space-y-4 text-[15.5px] leading-[1.7] text-muted-foreground">
@@ -237,7 +237,7 @@ export default function Home() {
         <section id="contact" className="border-t border-card-border">
           <div className="shell py-[clamp(4rem,8vw,7rem)]">
             <Reveal>
-              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+              <h2 className="live-display text-[clamp(1.8rem,4.5vw,3rem)]">
                 Get in touch
               </h2>
               <p className="mt-5 max-w-[52ch] text-[15.5px] leading-[1.65] text-muted-foreground">

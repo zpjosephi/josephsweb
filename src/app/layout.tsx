@@ -6,8 +6,8 @@ import {
   Geist,
   Bricolage_Grotesque,
   Schibsted_Grotesk,
-  Mona_Sans,
 } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Cursor } from "@/components/cursor";
@@ -46,12 +46,13 @@ const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-// Live front page (/) display: wide-cut grotesque. The wdth axis is what
-// gives the headline its stance; wght is what the kinetic title animates.
-const mona = Mona_Sans({
-  variable: "--font-mona",
-  subsets: ["latin"],
-  axes: ["wdth"],
+// Live front page (/) display: Cabinet Grotesk (Fontshare, self-hosted).
+// Variable wght 100-900 is what the kinetic title animates.
+const cabinet = localFont({
+  src: "../fonts/CabinetGrotesk-Variable.woff2",
+  variable: "--font-cabinet",
+  weight: "100 900",
+  display: "swap",
 });
 
 // Quiet cut (/minimal): one grotesk for both display and body.
@@ -96,7 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <body
-        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} ${mona.variable} min-h-full flex flex-col`}
+        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} ${cabinet.variable} min-h-full flex flex-col`}
       >
         {/* Keyboard skip link - first focusable element, visible only on focus. */}
         <a

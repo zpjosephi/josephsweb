@@ -94,8 +94,13 @@ export function WorkShowcase() {
           <li key={entry.slug} className="border-b border-card-border">
             <article
               className="group relative py-8 sm:py-10"
-              onPointerEnter={() => {
-                if (!reduce) setActive(i);
+              onPointerEnter={(e) => {
+                if (reduce) return;
+                // seed the preview position: the row can land under a resting
+                // cursor via scroll, before any pointermove fires
+                mx.set(e.clientX + 28);
+                my.set(e.clientY - 110);
+                setActive(i);
               }}
               onPointerLeave={() => setActive((a) => (a === i ? null : a))}
             >
@@ -118,7 +123,7 @@ export function WorkShowcase() {
                   className="block"
                   aria-label={`${entry.title}, open the live app`}
                 >
-                  <span className="live-display block text-[clamp(2.6rem,7vw,5.2rem)] transition-colors duration-200 group-hover:text-accent">
+                  <span className="live-display block text-[clamp(2rem,5vw,3.5rem)] transition-colors duration-200 group-hover:text-accent">
                     {entry.title}
                     <ArrowUpRight
                       aria-hidden

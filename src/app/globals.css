@@ -312,7 +312,7 @@
   --ok: oklch(0.87 0.19 148);
 
   --font-sans: var(--font-geist);
-  --font-display: var(--font-mona);
+  --font-display: var(--font-cabinet);
 
   background: var(--background);
   color: var(--foreground);
@@ -328,14 +328,14 @@
   padding-inline: clamp(1.25rem, 5vw, 6.5rem);
 }
 
-/* Display headline: wide-cut grotesque, mixed case. The width axis carries
-   the stance; the kinetic title animates wght per letter under the cursor. */
+/* Display: Cabinet Grotesk at regular weight - the quirk of the letterforms
+   carries the voice, not boldness. Weight is reserved for emphasized data
+   (the accent line in the hero); the kinetic title animates wght per letter. */
 .live-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 650;
-  font-variation-settings: "wdth" 120, "wght" 650;
-  letter-spacing: -0.015em;
-  line-height: 1;
+  font-weight: 420;
+  letter-spacing: -0.01em;
+  line-height: 1.04;
   text-wrap: balance;
 }
 

@@ -2,22 +2,23 @@
 
 import { useEffect, useRef } from "react";
 
-// Headline whose letters swell in weight near the cursor. Mona Sans is a
-// variable font (wght 200-900, wdth 75-125); the swell is one CSS custom
-// property per letter, width stays at the wide display cut. Letter positions
-// are re-measured only on resize; per-frame work is a loop of distance checks
-// writing font-variation-settings, no React re-renders.
+// Headline whose letters swell in weight near the cursor. Cabinet Grotesk is
+// a variable font (wght 100-900); the swell is one CSS custom property per
+// letter. The headline sits at regular weight - only the accent line (the
+// data) is bold - so each letter carries its own resting weight and swells
+// from there. Letter positions are re-measured only on resize; per-frame work
+// is a loop of distance checks writing font-variation-settings, no React
+// re-renders.
 //
 // Accessibility: the h1 carries the full text via aria-label; the letter spans
 // are presentation-only. Reduced motion and touch devices keep the static
 // weight.
 
-const BASE_WGHT = 650; // resting weight, matches .live-display
-const PEAK_WGHT = 880;
-const WDTH = 120; // display cut, matches .live-display
+const REGULAR = { base: 420, peak: 640 }; // matches .live-display
+const EMPHASIS = { base: 780, peak: 900 }; // the accent line only
 const RADIUS = 150;
 
-type LetterBox = { el: HTMLSpanElement; cx: number; cy: number };
+type LetterBox = { el: HTMLSpanElement; cx: number; cy: number; base: number; peak: number };
 
 export function KineticTitle({
   lines,
@@ -25,7 +26,7 @@ export function KineticTitle({
   className,
 }: {
   lines: string[];
-  /** index of the line rendered in the accent color */
+  /** index of the line rendered in the accent color and emphasis weight */
   accentLineIndex?: number;
   className?: string;
 }) {
@@ -43,7 +44,14 @@ export function KineticTitle({
         root.querySelectorAll<HTMLSpanElement>("[data-letter]")
       ).map((el) => {
         const r = el.getBoundingClientRect();
-        return { el, cx: r.left + r.width / 2, cy: r.top + r.height / 2 };
+        const emphasis = el.dataset.letter === "emphasis";
+        return {
+          el,
+          cx: r.left + r.width / 2,
+          cy: r.top + r.height / 2,
+          base: emphasis ? EMPHASIS.base : REGULAR.base,
+          peak: emphasis ? EMPHASIS.peak : REGULAR.peak,
+        };
       });
     };
     measure();
@@ -61,8 +69,8 @@ export function KineticTitle({
       for (const b of boxes) {
         const d = Math.hypot(b.cx - px, b.cy - py);
         const t = Math.max(0, 1 - d / RADIUS);
-        const wght = Math.round(BASE_WGHT + (PEAK_WGHT - BASE_WGHT) * t * t);
-        b.el.style.fontVariationSettings = `"wdth" ${WDTH}, "wght" ${wght}`;
+        const wght = Math.round(b.base + (b.peak - b.base) * t * t);
+        b.el.style.fontVariationSettings = `"wght" ${wght}`;
       }
       dirty = false;
     };
@@ -99,29 +107,36 @@ export function KineticTitle({
 
   return (
     <h1 ref={ref} aria-label={lines.join(" ")} className={className}>
-      {lines.map((line, li) => (
-        <span
-          key={li}
-          aria-hidden
-          className={`block ${li === accentLineIndex ? "text-accent" : ""}`}
-        >
-          {/* letters are inline-blocks, so group them per word (nowrap) and
-              keep real spaces between groups - otherwise the browser may
-              break a line mid-word */}
-          {line.split(" ").map((word, wi, words) => (
-            <span key={wi}>
-              <span className="inline-block whitespace-nowrap">
-                {Array.from(word).map((ch, ci) => (
-                  <span key={ci} data-letter className="inline-block">
-                    {ch}
-                  </span>
-                ))}
+      {lines.map((line, li) => {
+        const emphasis = li === accentLineIndex;
+        return (
+          <span
+            key={li}
+            aria-hidden
+            className={`block ${emphasis ? "text-accent font-[780]" : ""}`}
+          >
+            {/* letters are inline-blocks, so group them per word (nowrap) and
+                keep real spaces between groups - otherwise the browser may
+                break a line mid-word */}
+            {line.split(" ").map((word, wi, words) => (
+              <span key={wi}>
+                <span className="inline-block whitespace-nowrap">
+                  {Array.from(word).map((ch, ci) => (
+                    <span
+                      key={ci}
+                      data-letter={emphasis ? "emphasis" : "regular"}
+                      className="inline-block"
+                    >
+                      {ch}
+                    </span>
+                  ))}
+                </span>
+                {wi < words.length - 1 ? " " : null}
               </span>
-              {wi < words.length - 1 ? " " : null}
-            </span>
-          ))}
-        </span>
-      ))}
+            ))}
+          </span>
+        );
+      })}
     </h1>
   );
 }
