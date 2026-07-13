@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-// Poster headline whose letters swell in weight near the cursor. Big Shoulders
-// is a variable font (wght 100-900), so the swell is one CSS custom property
+// Headline whose letters swell in weight near the cursor. Bricolage Grotesque
+// is a variable font (wght 200-800), so the swell is one CSS custom property
 // per letter; widths breathe a little with the weight, which is the charm.
 // Letter positions are re-measured only on resize; per-frame work is a loop of
 // distance checks writing font-variation-settings, no React re-renders.
@@ -12,8 +12,8 @@ import { useEffect, useRef } from "react";
 // are presentation-only. Reduced motion and touch devices keep the static
 // weight.
 
-const BASE_WGHT = 750;
-const PEAK_WGHT = 900;
+const BASE_WGHT = 600; // resting weight, matches .live-display
+const PEAK_WGHT = 800; // Bricolage wght ceiling
 const RADIUS = 150;
 
 type LetterBox = { el: HTMLSpanElement; cx: number; cy: number };
@@ -61,7 +61,7 @@ export function KineticTitle({
         const d = Math.hypot(b.cx - px, b.cy - py);
         const t = Math.max(0, 1 - d / RADIUS);
         const wght = Math.round(BASE_WGHT + (PEAK_WGHT - BASE_WGHT) * t * t);
-        b.el.style.fontVariationSettings = `"opsz" 72, "wght" ${wght}`;
+        b.el.style.fontVariationSettings = `"opsz" 40, "wght" ${wght}`;
       }
       dirty = false;
     };

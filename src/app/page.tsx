@@ -8,11 +8,11 @@ import { HeroField } from "@/components/live/hero-field";
 import { KineticTitle } from "@/components/live/kinetic-title";
 import { WorkShowcase } from "@/components/live/work-showcase";
 import { Galton } from "@/components/live/galton";
+import { ToolkitMatrix } from "@/components/live/toolkit-matrix";
 import { CommandPalette } from "@/components/live/palette";
 import { EmailCopy } from "@/components/live/email-copy";
 import { site } from "@/lib/site";
 import { roles, education, certifications } from "@/data/experience";
-import { toolkit } from "@/data/skills";
 
 export default function Home() {
   return (
@@ -25,19 +25,19 @@ export default function Home() {
         <HeroField>
           <div
             data-kinetic-zone
-            className="mx-auto flex min-h-[calc(100dvh-4rem)] max-w-6xl flex-col justify-center px-6 py-16"
+            className="shell flex min-h-[calc(100dvh-4rem)] flex-col justify-end pb-[clamp(2.5rem,9vh,6rem)] pt-28"
           >
             <KineticTitle
               lines={["Software that", "understands", "data."]}
               accentLineIndex={2}
-              className="live-display text-[clamp(3.2rem,9.5vw,6rem)]"
+              className="live-display text-[clamp(3.2rem,9vw,6rem)]"
             />
-            <p className="mt-7 max-w-[46ch] text-[16.5px] leading-[1.65] text-muted-foreground">
+            <p className="mt-6 max-w-[48ch] text-[16.5px] leading-[1.65] text-muted-foreground">
               Move around: the scatter is you, and the line is least squares,
               solved live. Everything I ship does real statistics in the
               browser.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
                 className="inline-flex items-center rounded-lg bg-foreground px-5 py-2.5 text-[14px] font-medium text-background transition-transform hover:-translate-y-px active:translate-y-0"
@@ -56,12 +56,12 @@ export default function Home() {
         </HeroField>
 
         {/* ========================================================== WORK */}
-        <section id="work" className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <section id="work" className="shell py-[clamp(4rem,8vw,7rem)]">
           <Reveal>
             <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
               Selected work
             </h2>
-            <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.6] text-muted-foreground">
+            <p className="mt-4 max-w-[54ch] text-[15px] leading-[1.6] text-muted-foreground">
               Four shipped apps, all public. Two lean statistics, two lean
               engineering; every one runs live behind these links.
             </p>
@@ -73,7 +73,7 @@ export default function Home() {
 
         {/* ======================================================== GALTON */}
         <section className="border-t border-card-border">
-          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+          <div className="shell grid gap-12 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
             <Reveal>
               <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
                 Statistics you can poke
@@ -104,7 +104,7 @@ export default function Home() {
 
         {/* ==================================================== EXPERIENCE */}
         <section id="experience" className="border-t border-card-border">
-          <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+          <div className="shell py-[clamp(4rem,8vw,7rem)]">
             <Reveal>
               <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
                 Experience
@@ -115,13 +115,13 @@ export default function Home() {
                 <Reveal key={role.company} delay={0.04 * i}>
                   <div className="grid gap-3 py-8 md:grid-cols-[230px_1fr] md:gap-8">
                     <div>
-                      <p className="mono text-[13px]">{role.period}</p>
+                      <p className="mono text-[13px] font-medium">{role.period}</p>
                       <p className="mono mt-0.5 text-[12px] text-muted-foreground">
                         {role.location}
                       </p>
                     </div>
                     <div>
-                      <h3 className="text-[17px] font-semibold tracking-tight">
+                      <h3 className="text-[17px] font-medium tracking-tight">
                         {role.title}
                         <span className="font-normal text-muted-foreground">
                           {" "}
@@ -145,13 +145,13 @@ export default function Home() {
               <Reveal>
                 <div className="grid gap-3 py-8 md:grid-cols-[230px_1fr] md:gap-8">
                   <div>
-                    <p className="mono text-[13px]">{education.period}</p>
+                    <p className="mono text-[13px] font-medium">{education.period}</p>
                     <p className="mono mt-0.5 text-[12px] text-muted-foreground">
                       West Jakarta
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-[17px] font-semibold tracking-tight">
+                    <h3 className="text-[17px] font-medium tracking-tight">
                       {education.degree}
                       <span className="font-normal text-muted-foreground">
                         {" "}
@@ -174,9 +174,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ======================================================= TOOLKIT */}
+        <section id="toolkit" className="border-t border-card-border">
+          <div className="shell py-[clamp(4rem,8vw,7rem)]">
+            <Reveal>
+              <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
+                Toolkit
+              </h2>
+              <p className="mt-4 max-w-[56ch] text-[15px] leading-[1.6] text-muted-foreground">
+                The stack behind the work, grouped by what it does. Hover a
+                tool to trace the ones it actually ships alongside.
+              </p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <div className="mt-10">
+                <ToolkitMatrix />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ========================================================= ABOUT */}
         <section id="about" className="border-t border-card-border">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:py-24 lg:grid-cols-[1fr_260px] lg:gap-16">
+          <div className="shell grid gap-12 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-[1fr_300px] lg:gap-20">
             <Reveal>
               <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
                 About
@@ -200,28 +220,6 @@ export default function Home() {
                   professional working level.
                 </p>
               </div>
-              <div className="mt-12 max-w-[58ch]">
-                <h3 className="text-[17px] font-semibold tracking-tight">
-                  What I work with
-                </h3>
-                <p className="mt-2 text-[15px] leading-[1.6] text-muted-foreground">
-                  The degree carries the theory; most of these were picked up
-                  outside the classroom, by shipping.
-                </p>
-                <dl className="mt-5 divide-y divide-card-border border-y border-card-border">
-                  {toolkit.map((row) => (
-                    <div
-                      key={row.label}
-                      className="grid gap-1 py-4 sm:grid-cols-[150px_1fr] sm:gap-6"
-                    >
-                      <dt className="mono pt-0.5 text-[12.5px] text-muted-foreground">
-                        {row.label}
-                      </dt>
-                      <dd className="text-[15px] leading-[1.6]">{row.body}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
             </Reveal>
             <Reveal delay={0.08}>
               <figure className="max-w-[260px]">
@@ -235,7 +233,7 @@ export default function Home() {
 
         {/* ======================================================= CONTACT */}
         <section id="contact" className="border-t border-card-border">
-          <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+          <div className="shell py-[clamp(4rem,8vw,7rem)]">
             <Reveal>
               <h2 className="live-display text-[clamp(2.2rem,6vw,4rem)]">
                 Get in touch
@@ -277,7 +275,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-card-border">
-        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-2 px-6 py-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
+        <div className="shell flex flex-col justify-between gap-2 py-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {site.shortName}
           </p>

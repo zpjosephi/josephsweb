@@ -13,11 +13,8 @@ const links = [
 export function LiveNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-card-border bg-[oklch(0.145_0.012_145/0.82)] backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="live-display text-[17px] tracking-[0.04em]"
-        >
+      <nav className="shell flex h-16 items-center justify-between">
+        <Link href="/" className="live-display text-[17px]">
           Joseph Irawan
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">

@@ -57,6 +57,7 @@ export function CommandPalette() {
     () => [
       { id: "work", group: "Go to", label: "Work", run: (c) => go("work")(c) },
       { id: "experience", group: "Go to", label: "Experience", run: (c) => go("experience")(c) },
+      { id: "toolkit", group: "Go to", label: "Toolkit", keywords: "skills stack tech", run: (c) => go("toolkit")(c) },
       { id: "about", group: "Go to", label: "About", run: (c) => go("about")(c) },
       { id: "contact", group: "Go to", label: "Contact", run: (c) => go("contact")(c) },
       {

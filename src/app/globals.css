@@ -312,7 +312,7 @@
   --ok: oklch(0.87 0.19 148);
 
   --font-sans: var(--font-geist);
-  --font-display: var(--font-poster);
+  --font-display: var(--font-bricolage);
 
   background: var(--background);
   color: var(--foreground);
@@ -320,14 +320,23 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Poster display: condensed, tall, meant to be huge. */
+/* Full-width shell. No max-width on purpose: the page fills the viewport and
+   the horizontal padding scales with it, so zoom in/out tracks the layout
+   instead of leaving fixed gutters. Prose keeps its own ch measure inside. */
+.live .shell {
+  width: 100%;
+  padding-inline: clamp(1.25rem, 5vw, 6.5rem);
+}
+
+/* Display headline: humanist grotesque, mixed case, weight does the talking.
+   Variable wght is what the kinetic title animates under the cursor. */
 .live-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 750;
-  font-variation-settings: "opsz" 72;
-  text-transform: uppercase;
-  letter-spacing: 0.005em;
-  line-height: 0.92;
+  font-weight: 640;
+  font-variation-settings: "opsz" 40, "wght" 640;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .live .mono {
