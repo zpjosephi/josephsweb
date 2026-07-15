@@ -51,6 +51,8 @@ export const education: EducationEntry = {
   degree: "B.Sc. Computer Science & Statistics",
   period: "Expected Aug 2026",
   coursework: [
+    "Algorithm & Programming (C/C++)",
+    "Data Structures",
     "Machine Learning",
     "Deep Learning (TensorFlow, Keras)",
     "Artificial Intelligence",
