@@ -300,7 +300,7 @@ export function HeroField({ children }: { children: ReactNode }) {
 
   return (
     <div ref={wrapRef} className="relative overflow-hidden">
-      <canvas ref={canvasRef} aria-hidden className="absolute inset-0" />
+      <canvas ref={canvasRef} aria-hidden className="absolute inset-0 h-full w-full" />
       <div className="relative z-10">{children}</div>
 
       {/* live readout; hidden on small screens where it would crowd the copy */}
