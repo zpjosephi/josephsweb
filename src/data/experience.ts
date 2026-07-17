@@ -48,7 +48,7 @@ export type EducationEntry = {
 
 export const education: EducationEntry = {
   school: "Bina Nusantara University",
-  degree: "B.Sc. Computer Science & Statistics",
+  degree: "Bachelor of Computer Science & Statistics",
   period: "Expected Aug 2026",
   coursework: [
     "Algorithm & Programming (C)",

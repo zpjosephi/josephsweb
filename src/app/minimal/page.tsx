@@ -294,7 +294,7 @@ const rows: Row[] = [
   {
     period: "Expected Aug 2026",
     place: "West Jakarta",
-    title: "B.Sc. Computer Science & Statistics",
+    title: "Bachelor of Computer Science & Statistics",
     org: "Bina Nusantara University",
     points: [
       "Double degree. Coursework spans algorithm and programming (C), data structures, machine learning, deep learning (TensorFlow, Keras), artificial intelligence, data analysis, text and data mining, computational biology (BioPython), software engineering, object-oriented programming (Java), web programming (Laravel), and UI/UX.",
