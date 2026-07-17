@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Dev screenshot artifacts (regenerated on demand)
 /scripts/*.png
+
+# internal planning docs (not for public repo)
+PRODUCT.md
+portfolio-plan.md
