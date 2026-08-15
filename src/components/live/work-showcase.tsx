@@ -50,6 +50,16 @@ const entries: Entry[] = [
     caseStudyUrl: "/work/xeleven",
   },
   {
+    slug: "juragan-gorengan",
+    title: "Juragan Gorengan",
+    blurb:
+      "An idle game about building a street-food empire: five stalls with different economies and a prestige loop across five cities. Every sprite is pixel art drawn in code, every sound synthesized in the browser.",
+    stack: "Next.js, TypeScript, GSAP, WebAudio",
+    image: "/projects/juragan.png",
+    alt: "Juragan Gorengan: pixel art night market with five food stalls and an upgrade panel",
+    liveUrl: "https://juragangorengan.vercel.app/",
+  },
+  {
     slug: "bakery-kita",
     title: "Bakery Kita",
     blurb:

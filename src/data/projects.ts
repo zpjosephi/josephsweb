@@ -53,6 +53,28 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "juragan-gorengan",
+    title: "Juragan Gorengan",
+    category: "engineering",
+    badge: "Game",
+    summary:
+      "An idle game about running an Indonesian street-food empire: you start with one fried-snack cart at a night market and grow into five stalls, then sell the whole thing to open a branch in a new city. Every sprite is pixel art I draw in code (no asset packs exist for a gerobak gorengan, so I made my own), and every sound effect is synthesized in the browser. It's also my design lab for the Android version I want to ship to the Play Store.",
+    highlights: [
+      "Five stalls with genuinely different economies: tap-to-fry gorengan, passive iced tea, bakso cooked in pot cycles, a coffee shop whose price rides a going-viral trend wave, and rare high-value martabak orders",
+      "Supply and demand simulated for real: if the display case runs empty, customers walk away, and rush hours every couple of minutes multiply foot traffic and drain your stock",
+      "Prestige loop: sell up and rotate through five cities, each biased toward different stalls, while permanent recipe bonuses stack across runs",
+      "A pannable night-market street with parallax sky that changes color per city, plus a zoom-out mode to watch the whole market at once",
+      "All pixel art generated from text maps rendered to SVG paths, so sprites react to gameplay: the frying pan literally widens as you upgrade it and the display case grows extra shelves",
+      "Sound effects synthesized with WebAudio (sizzle, coin, rush-hour alarm, order jingle), zero audio files shipped",
+      "The usual idle-game quality-of-life done properly: mission chain, a 2x boost on cooldown, buy x1/x10/MAX, offline earnings, and a save that survives version changes",
+      "Game engine written as pure TypeScript with no React in it, so the whole simulation can move to Android later untouched",
+    ],
+    tech: ["Next.js (App Router)", "TypeScript", "GSAP", "WebAudio", "Tailwind CSS"],
+    liveUrl: "https://juragangorengan.vercel.app/",
+    image: "/projects/juragan.png",
+    featured: true,
+  },
+  {
     slug: "bakery-kita",
     title: "Bakery Kita",
     category: "engineering",
