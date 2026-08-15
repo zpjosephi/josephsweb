@@ -153,7 +153,7 @@ export default function V2Page() {
                 </p>
                 <div className="mt-6 max-w-[58ch] space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                   <p>
-                    I&apos;m a double-degree student in Computer Science and
+                    I&apos;m a double-degree graduate in Computer Science and
                     Statistics. Instead of treating them as separate worlds, I
                     combine them: software that&apos;s built well{" "}
                     <span className="text-foreground">and</span> reasons about

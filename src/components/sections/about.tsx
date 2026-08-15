@@ -50,7 +50,7 @@ export function About() {
         <Reveal delay={0.05}>
           <div className="max-w-[58ch] space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>
-              I&apos;m a double-degree student in Computer Science and
+              I&apos;m a double-degree graduate in Computer Science and
               Statistics. Instead of treating them as separate worlds, I
               combine them: software that&apos;s built well{" "}
               <span className="text-foreground">and</span> reasons about data.

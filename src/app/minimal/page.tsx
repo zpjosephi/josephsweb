@@ -40,7 +40,7 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.08}>
         <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-muted-foreground">
-          Final-year Computer Science &amp; Statistics student at BINUS,
+          Computer Science &amp; Statistics graduate from BINUS,
           previously a data analyst intern at Indonesia Eximbank. Everything
           below is shipped and running live.
         </p>
@@ -292,7 +292,7 @@ const rows: Row[] = [
     ],
   },
   {
-    period: "Expected Aug 2026",
+    period: "Graduated Aug 2026",
     place: "West Jakarta",
     title: "Bachelor of Computer Science & Statistics",
     org: "Bina Nusantara University",

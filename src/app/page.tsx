@@ -205,11 +205,11 @@ export default function Home() {
               </h2>
               <div className="mt-6 max-w-[58ch] space-y-4 text-[15.5px] leading-[1.7] text-muted-foreground">
                 <p>
-                  I&apos;m Joseph Irawan, a final-year Computer Science &amp;
-                  Statistics double degree at BINUS, based in Jakarta. The
-                  degree pairing is the whole idea: computer science to build
-                  the product, statistics to be honest about the data inside
-                  it.
+                  I&apos;m Joseph Irawan, a fresh Computer Science &amp;
+                  Statistics double-degree graduate from BINUS, based in
+                  Jakarta. The degree pairing is the whole idea: computer
+                  science to build the product, statistics to be honest about
+                  the data inside it.
                 </p>
                 <p>
                   Outside the code I spent two years in HIMSTAT, the statistics

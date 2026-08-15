@@ -117,7 +117,7 @@ export default function Home() {
                 </h2>
                 <div className="mt-7 max-w-md space-y-4 text-[16px] leading-[1.7] text-muted-foreground">
                   <p>
-                    I am a double-degree student in Computer Science and
+                    I am a double-degree graduate in Computer Science and
                     Statistics. The engineering projects prove I can build; the
                     statistics projects prove I can analyze.
                   </p>

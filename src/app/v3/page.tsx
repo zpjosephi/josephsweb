@@ -179,7 +179,7 @@ export default function V3Page() {
                 </h2>
                 <div className="mt-7 max-w-xl space-y-4 text-[16px] leading-[1.75] text-muted-foreground">
                   <p>
-                    I&apos;m a double-degree student in Computer Science and
+                    I&apos;m a double-degree graduate in Computer Science and
                     Statistics. My engineering projects prove I can build; my
                     statistics projects prove I can analyze. Together they tell a
                     single story: data-driven products people actually use.

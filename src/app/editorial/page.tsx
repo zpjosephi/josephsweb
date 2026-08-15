@@ -361,7 +361,7 @@ export default function EditorialDemo() {
           <div className="mt-14 flex flex-wrap items-end justify-between gap-6">
             <p className="max-w-md text-lg leading-relaxed" style={{ color: "rgba(12,11,9,0.7)" }}>
               Joseph Irawan, a Computer Science{" "}
-              <span style={{ color: ACCENT }}>×</span> Statistics student building
+              <span style={{ color: ACCENT }}>×</span> Statistics graduate building
               data-driven software.
             </p>
             <div className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "rgba(12,11,9,0.5)" }}>
