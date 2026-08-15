@@ -29,16 +29,6 @@ type Entry = {
 
 const entries: Entry[] = [
   {
-    slug: "ceritabel",
-    title: "ceritabel",
-    blurb:
-      "Full statistical workflow in the browser: EDA, hypothesis tests, OLS with assumption checks, panel models and time-series analysis. About 80 unit tests, p-values checked against R.",
-    stack: "Next.js, TypeScript, Vitest, Gemini / Groq",
-    image: "/projects/ceritabel.png",
-    alt: "ceritabel: dataset summary with a quality score, variable chips, and an AI insight panel",
-    liveUrl: "https://ceritabel.vercel.app/analyze?sample=siswa",
-  },
-  {
     slug: "xeleven",
     title: "xEleven",
     blurb:
@@ -50,14 +40,14 @@ const entries: Entry[] = [
     caseStudyUrl: "/work/xeleven",
   },
   {
-    slug: "juragan-gorengan",
-    title: "Juragan Gorengan",
+    slug: "ceritabel",
+    title: "ceritabel",
     blurb:
-      "An idle game about building a street-food empire: five stalls with different economies and a prestige loop across five cities. Every sprite is pixel art drawn in code, every sound synthesized in the browser.",
-    stack: "Next.js, TypeScript, GSAP, WebAudio",
-    image: "/projects/juragan.png",
-    alt: "Juragan Gorengan: pixel art night market with five food stalls and an upgrade panel",
-    liveUrl: "https://juragangorengan.vercel.app/",
+      "Full statistical workflow in the browser: EDA, hypothesis tests, OLS with assumption checks, panel models and time-series analysis. About 80 unit tests, p-values checked against R.",
+    stack: "Next.js, TypeScript, Vitest, Gemini / Groq",
+    image: "/projects/ceritabel.png",
+    alt: "ceritabel: dataset summary with a quality score, variable chips, and an AI insight panel",
+    liveUrl: "https://ceritabel.vercel.app/analyze?sample=siswa",
   },
   {
     slug: "bakery-kita",
@@ -69,6 +59,16 @@ const entries: Entry[] = [
     alt: "Bakery Kita: e-commerce storefront catalog",
     liveUrl: "https://bakery-kita.vercel.app/",
     caseStudyUrl: "/work/bakery-kita",
+  },
+  {
+    slug: "juragan-gorengan",
+    title: "Juragan Gorengan",
+    blurb:
+      "An idle game about building a street-food empire: five stalls with different economies and a prestige loop across five cities. Every sprite is pixel art drawn in code, every sound synthesized in the browser.",
+    stack: "Next.js, TypeScript, GSAP, WebAudio",
+    image: "/projects/juragan.png",
+    alt: "Juragan Gorengan: pixel art night market with five food stalls and an upgrade panel",
+    liveUrl: "https://juragangorengan.vercel.app/",
   },
   {
     slug: "after-hours",
