@@ -138,6 +138,25 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "satumusim",
+    title: "satumusim: 98 to 97",
+    category: "data",
+    badge: "Data story",
+    summary:
+      "A scroll-driven data story about the closest title race the Premier League has ever seen: Manchester City 98 points, Liverpool 97. One long page replays the whole 2018/19 season, scrubbing a 38-week race chart as you scroll, reconstructing the famous 11.7mm goal-line clearance, and playing the final day out minute by minute. Built to learn GSAP properly, on match data from my xEleven archive.",
+    highlights: [
+      "A pinned race chart that draws itself as you scroll: 38 matchweeks of cumulative points with story beats fading in at the swings that decided the title",
+      "The 11.7mm goal-line clearance rebuilt as an original goal-line-technology graphic: the ball rolls in, stops a sliver short of counting, and gets swept away, with the real match photo embedded through Getty's official player",
+      "The final day as a pinned minute-by-minute sequence, ending with the 98 to 97 scoreline flooding the screen in City blue",
+      "City's 14 straight closing wins as a horizontal scrub strip, plus hover tooltips on the chart and a week-by-week table fallback",
+      "Editorial art direction: Fraunces display type, film grain, club-color light washes, and CC-licensed stadium photography with credits",
+      "Every animation has a prefers-reduced-motion fallback, and the chart ships a separate mobile layout so the axes stay readable on a phone",
+    ],
+    tech: ["Next.js", "TypeScript", "GSAP (ScrollTrigger + ScrollSmoother)", "Tailwind CSS"],
+    liveUrl: "https://satumusim.vercel.app/",
+    image: "/projects/satumusim.png",
+  },
+  {
     slug: "after-hours",
     title: "After hours",
     category: "engineering",

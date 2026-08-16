@@ -71,6 +71,16 @@ const entries: Entry[] = [
     liveUrl: "https://juragangorengan.vercel.app/",
   },
   {
+    slug: "satumusim",
+    title: "satumusim: 98 to 97",
+    blurb:
+      "A scroll-driven data story about the closest Premier League title race ever: a race chart that draws itself as you scroll, the 11.7mm goal-line clearance rebuilt as a graphic, and the final day minute by minute.",
+    stack: "Next.js, TypeScript, GSAP",
+    image: "/projects/satumusim.png",
+    alt: "satumusim: 98 to 97 title screen with the two final point totals over a stadium at night",
+    liveUrl: "https://satumusim.vercel.app/",
+  },
+  {
     slug: "after-hours",
     title: "After hours",
     blurb:
