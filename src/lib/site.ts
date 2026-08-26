@@ -9,7 +9,7 @@ export const site = {
   location: "Indonesia",
   email: "josephirawan07@gmail.com",
   // Replace with your real CV file once uploaded to /public
-  cvUrl: "/cv.pdf",
+  cvUrl: "/cv.pdf?v=2026-08-16",
   socials: {
     github: "https://github.com/zpjosephi",
     linkedin: "https://www.linkedin.com/in/joseph-irawan",
