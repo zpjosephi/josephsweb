@@ -1,501 +1,90 @@
 @import "tailwindcss";
 
-/* ===========================================================================
-   INDUSTRIAL BRUTALISM · TACTICAL TELEMETRY
-   ---------------------------------------------------------------------------
-   Two honest substrates, one accent (hazard red).
-     · DARK  = Tactical Telemetry / deactivated CRT  (default)
-     · LIGHT = Swiss Industrial Print / documentation paper
-   No gradients, no soft shadows, no translucency-as-decoration, no radius.
-=========================================================================== */
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* LIGHT - Swiss Industrial Print (unbleached documentation paper) */
+/* One light page with a drenched ultramarine stage for the data. Neutrals are
+   chroma-0 so the blue and the highlighter yellow do all the talking. */
 :root {
-  --background: #ecebe5;
-  --foreground: #0b0b0b;
-  --muted: #e1dfd7;
-  --muted-foreground: #5c5b54;
-  --card: #f4f3ee;
-  --card-border: #11110f;          /* carbon ink hairlines, full contrast */
-  --grid-line: #11110f1a;
-  --accent: #d51a1a;               /* aviation / hazard red */
-  --accent-foreground: #f4f3ee;
-  --ring: #d51a1a;
-  --ok: #1f7a1f;                   /* single utilitarian "nominal" green */
-}
+  --paper: oklch(0.985 0 0);
+  --ink: oklch(0.2 0.03 266);
+  --ink-soft: oklch(0.42 0.025 266);
+  --rule: oklch(0.88 0.01 266);
 
-/* DARK - Tactical Telemetry (deactivated CRT, never pure black) */
-.dark {
-  --background: #0a0a0a;
-  --foreground: #eaeaea;           /* white phosphor */
-  --muted: #141414;
-  --muted-foreground: #8a8a8a;
-  --card: #101010;
-  --card-border: #2a2a2a;
-  --grid-line: #eaeaea12;
-  --accent: #ff2d2d;               /* hazard red, hotter on CRT */
-  --accent-foreground: #0a0a0a;
-  --ring: #ff2d2d;
-  --ok: #4af626;                   /* phosphor green, used once */
+  --stage: oklch(0.4 0.2 266);
+  --stage-deep: oklch(0.33 0.18 266);
+  --on-stage: oklch(0.98 0.01 266);
+  --on-stage-soft: oklch(0.86 0.05 266);
+  --on-stage-faint: oklch(0.72 0.08 266);
+
+  --mark: oklch(0.93 0.19 106);
+  --mark-ink: oklch(0.25 0.06 106);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(1.25rem, 4.5vw, 5.5rem);
+
+  --z-sticky: 10;
+  --z-tooltip: 30;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-card: var(--card);
-  --color-card-border: var(--card-border);
-  --color-hairline: var(--hairline);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-ring: var(--ring);
-  --color-ok: var(--ok);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-display: var(--font-display);
-}
-
-* {
-  border-color: var(--card-border);
-}
-
-/* Visible keyboard focus on every interactive element. The ring renders on the
-   page background (separated from the element by the offset gap), so it stays
-   visible even on accent-filled buttons. Mouse clicks don't trigger it. */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-/* Brutalist routes zero out radius; keep the focus ring square to match. */
-.brutal :focus-visible {
-  outline-offset: 3px;
-}
-
-/* Mechanical rigidity: reject all radii - scoped to brutalist routes (/ , /v2) */
-.brutal *,
-.brutal *::before,
-.brutal *::after {
-  border-radius: 0 !important;
-}
-
-/* ===========================================================================
-   V3 - Premium Editorial Minimalism (warm, light) · scoped to .v3 only
-=========================================================================== */
-.v3 {
-  --background: #f7f6f3;          /* warm bone */
-  --foreground: #24231f;          /* warm charcoal, never pure black */
-  --muted: #efeee9;
-  --muted-foreground: #66635b;     /* darkened: WCAG AA (~5.3:1) on warm bone */
-  --card: #fbfbfa;
-  --card-border: #e7e5de;         /* ultra-light warm hairline */
-  --grid-line: #24231f0a;
-  --accent: #9f2f2d;              /* desaturated clay red, used sparingly */
-  --accent-foreground: #ffffff;
-  --ring: #9f2f2d;
-  --ok: #346538;
-  /* Category tag pastels - tokenized so projects/about stay in sync (AA-safe). */
-  --tag-eng-bg: #e1f3fe;
-  --tag-eng-fg: #1f6c9f;
-  --tag-data-bg: #edf3ec;
-  --tag-data-fg: #346538;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-}
-.v3 ::selection {
-  background: #fdebec;
-  color: #9f2f2d;
-}
-/* Editorial serif - hero headings & quotes */
-.editorial {
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
-  letter-spacing: -0.025em;
-  line-height: 1.04;
-}
-/* Warm ambient light spot behind the v3 hero (depth without breaking flat) */
-.v3-ambient {
-  background-image: radial-gradient(
-    60% 50% at 50% 0%,
-    rgba(159, 47, 45, 0.05),
-    transparent 70%
-  );
-}
-
-/* ===========================================================================
-   STUDIO. Editorial "ink on paper" front page (/) · scoped to .studio
-   ---------------------------------------------------------------------------
-   One restrained accent (cool cobalt, used on <5% of the page). Light is the
-   primary substrate (warm paper + ink); dark is a near-black gallery. Soft
-   unified radii, hairline rules, no grain/scanlines/hazard chrome.
-=========================================================================== */
-.studio {
-  --background: #f4f2ec;          /* warm documentation paper */
-  --foreground: #16150f;          /* warm ink, never pure black */
-  --muted: #e9e6dc;
-  --muted-foreground: #64615a;    /* AA (~5.0:1) on warm paper */
-  --card: #faf8f3;
-  --card-border: #dcd7ca;         /* warm hairline */
-  --hairline: #c7c1b2;            /* stronger rule for structure */
-  --grid-line: #1615100c;
-  --accent: #2a44c4;              /* cool cobalt, the single signal */
-  --accent-foreground: #f7f5ef;
-  --ring: #2a44c4;
-  --ok: #2f7a43;
-
-  --font-sans: var(--font-geist);
-  --font-display: var(--font-bricolage);
-
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-.dark .studio {
-  --background: #0c0c0d;          /* near-black gallery */
-  --foreground: #ededed;
-  --muted: #161618;
-  --muted-foreground: #9b988f;    /* AA on near-black */
-  --card: #121214;
-  --card-border: #292a2d;
-  --hairline: #3b3b3f;
-  --grid-line: #ededed0d;
-  --accent: #8094ff;              /* brighter cobalt on near-black */
-  --accent-foreground: #0c0c0d;
-  --ring: #8094ff;
-  --ok: #5fce7d;
-}
-
-/* Shape lock: every interactive element is a pill, every surface is 12px. */
-.studio {
-  --radius: 12px;
-}
-
-/* Display headings: characterful grotesque, tight optical tracking. */
-.studio-display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.035em;
-  line-height: 0.94;
-  font-weight: 600;
-}
-
-/* Micro metadata: mono, used for labels and live numbers only. */
-.studio .mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-}
-
-.studio ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Faint engineering grid behind the hero (depth without the blueprint cliche). */
-.studio-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 60px 60px;
-  -webkit-mask-image: radial-gradient(115% 80% at 50% 0%, #000 38%, transparent 80%);
-  mask-image: radial-gradient(115% 80% at 50% 0%, #000 38%, transparent 80%);
-}
-
-/* Link underline that draws in on hover (nav + inline links). */
-.studio .ul-draw {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 1px;
-  transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.studio .ul-draw:hover {
-  background-size: 100% 1px;
-}
-
-/* Slider thumb/track adopt the accent without bespoke chrome. */
-.studio input[type="range"] {
-  accent-color: var(--accent);
-}
-
-/* ===========================================================================
-   HOME. The front page (/) · scoped to .home
-   ---------------------------------------------------------------------------
-   Quiet, typographic, near-monochrome. One family (Schibsted Grotesk) doing
-   display and body work through weight contrast, mono reserved for dates and
-   file-style metadata. Single deep-green accent, used for links and little else.
-=========================================================================== */
-.home {
-  --background: #f6f6f3;
-  --foreground: #1b1b17;
-  --muted: #ebebe7;
-  --muted-foreground: #55554f;    /* ~7:1 on the page background */
-  --card: #fdfdfb;
-  --card-border: #e0e0da;
-  --hairline: #c9c9c1;
-  --grid-line: #1b1b170a;
-  --accent: #1c6b4b;              /* deep green, ~6:1 on light */
-  --accent-foreground: #f4faf6;
-  --ring: #1c6b4b;
-  --ok: #1c6b4b;
-
-  --font-sans: var(--font-home);
-
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-.dark .home {
-  --background: #141412;
-  --foreground: #e8e8e2;
-  --muted: #1d1d1a;
-  --muted-foreground: #a4a49b;    /* AA+ on near-black */
-  --card: #1a1a17;
-  --card-border: #2c2c28;
-  --hairline: #3c3c37;
-  --grid-line: #e8e8e20a;
-  --accent: #6cc796;              /* readable green on dark */
-  --accent-foreground: #101410;
-  --ring: #6cc796;
-  --ok: #6cc796;
-}
-
-/* Headings: same family, tighter tracking, weight does the talking. */
-.home-display {
-  letter-spacing: -0.025em;
-  line-height: 1.02;
-  font-weight: 600;
-}
-
-.home .mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-}
-
-.home ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Inline text links: real underlines, like documents have. */
-.home .link {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--hairline);
-  text-decoration-thickness: 1px;
-  transition: text-decoration-color 0.2s ease, color 0.2s ease;
-}
-.home .link:hover {
-  text-decoration-color: currentColor;
-}
-
-/* ===========================================================================
-   LIVE. Interactive front page (/) · scoped to .live
-   ---------------------------------------------------------------------------
-   Night lab: a science-museum exhibit after hours. Deep green-black ink, one
-   phosphor-mint accent that always means "live data", poster-condensed display
-   type (Big Shoulders, variable weight), Geist body, mono strictly for
-   readouts. Theme-locked dark: this room has its own lighting.
-=========================================================================== */
-.live {
-  --background: oklch(0.145 0.012 145);
-  --foreground: oklch(0.955 0.007 145);
-  --muted: oklch(0.19 0.014 145);
-  --muted-foreground: oklch(0.74 0.02 145);
-  --card: oklch(0.175 0.013 145);
-  --card-border: oklch(0.29 0.02 145);
-  --hairline: oklch(0.38 0.025 145);
-  --grid-line: oklch(0.955 0.007 145 / 0.05);
-  --accent: oklch(0.87 0.19 148);
-  --accent-foreground: oklch(0.17 0.03 148);
-  --ring: oklch(0.87 0.19 148);
-  --ok: oklch(0.87 0.19 148);
-
-  --font-sans: var(--font-geist);
-  --font-display: var(--font-cabinet);
-
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Full-width shell. No max-width on purpose: the page fills the viewport and
-   the horizontal padding scales with it, so zoom in/out tracks the layout
-   instead of leaving fixed gutters. Prose keeps its own ch measure inside. */
-.live .shell {
-  width: 100%;
-  padding-inline: clamp(1.25rem, 5vw, 6.5rem);
-}
-
-/* Display: Cabinet Grotesk at regular weight - the quirk of the letterforms
-   carries the voice, not boldness. Weight is reserved for emphasized data
-   (the accent line in the hero); the kinetic title animates wght per letter. */
-.live-display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 420;
-  letter-spacing: -0.01em;
-  line-height: 1.04;
-  text-wrap: balance;
-}
-
-.live .mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-}
-
-.live ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Readout panel chrome: hairline box that always frames live numbers. */
-.live-readout {
-  border: 1px solid var(--card-border);
-  background: oklch(0.155 0.013 145 / 0.82);
-  backdrop-filter: blur(6px);
-}
-
-/* Underlined text links, same document logic as the quiet cut. */
-.live .link {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--hairline);
-  text-decoration-thickness: 1px;
-  transition: text-decoration-color 0.2s ease, color 0.2s ease;
-}
-.live .link:hover {
-  text-decoration-color: var(--accent);
-  color: var(--accent);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-stage: var(--stage);
+  --color-stage-deep: var(--stage-deep);
+  --color-on-stage: var(--on-stage);
+  --color-on-stage-soft: var(--on-stage-soft);
+  --color-on-stage-faint: var(--on-stage-faint);
+  --color-mark: var(--mark);
+  --color-mark-ink: var(--mark-ink);
+  --font-sans: var(--font-funnel-sans);
+  --font-display: var(--font-funnel-display);
 }
 
 html {
-  scroll-behavior: smooth;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-funnel-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01";
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-funnel-display), system-ui, sans-serif;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.shell {
+  padding-inline: var(--gutter);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* --- Macro typography: structural uppercase headers ----------------------- */
-.display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-}
-
-/* Micro typography helper - terminal metadata */
-.tele {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-/* ===========================================================================
-   TEXTURE - analog degradation engineered in CSS/SVG
-=========================================================================== */
-
-/* Global low-opacity mechanical noise grain (both substrates) */
-.noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.04;
-}
-.dark .noise-overlay {
-  opacity: 0.06;
-}
-
-/* CRT scanlines - dark substrate only (electron-beam sweep) */
-.scanlines {
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 2px,
-    rgba(0, 0, 0, 0.16) 2px,
-    rgba(0, 0, 0, 0.16) 3px
-  );
-  opacity: 0;
-}
-.dark .scanlines {
-  opacity: 1;
-}
-
-/* --- Blueprint grid backdrop with registration crosshairs ----------------- */
-.datasheet-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(130% 90% at 50% 0%, #000 55%, transparent 100%);
-  mask-image: radial-gradient(130% 90% at 50% 0%, #000 55%, transparent 100%);
-}
-
-/* Hero backdrop: denser blueprint grid (flat - no glow, no gradient accent) */
-.glow-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 44px 44px;
-  -webkit-mask-image: radial-gradient(75% 65% at 50% 0%, #000 35%, transparent 100%);
-  mask-image: radial-gradient(75% 65% at 50% 0%, #000 35%, transparent 100%);
-}
-
-/* Tick marks under a section's top axis line */
-.tick-axis {
-  background-image: repeating-linear-gradient(
-    to right,
-    var(--card-border) 0,
-    var(--card-border) 1px,
-    transparent 1px,
-    transparent 12px
-  );
-}
-
-/* Thick hazard warning stripe */
-.hazard-stripe {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--accent) 0,
-    var(--accent) 10px,
-    transparent 10px,
-    transparent 20px
-  );
-}
-
-/* --- Live data ticker marquee --------------------------------------------- */
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.animate-ticker {
-  animation: ticker 45s linear infinite;
-}
-.animate-ticker:hover {
-  animation-play-state: paused;
-}
-
-/* Slow blink for status indicators */
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0.15; }
-}
-.animate-blink {
-  animation: blink 1.4s steps(1) infinite;
+  background: var(--mark);
+  color: var(--mark-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .animate-ticker,
-  .animate-blink {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

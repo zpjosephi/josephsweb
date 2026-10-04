@@ -1,63 +1,15 @@
 import type { Metadata } from "next";
-import {
-  Archivo,
-  Archivo_Black,
-  JetBrains_Mono,
-  Geist,
-  Bricolage_Grotesque,
-  Schibsted_Grotesk,
-} from "next/font/google";
-import localFont from "next/font/local";
+import { Funnel_Display, Funnel_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Cursor } from "@/components/cursor";
 import { site } from "@/lib/site";
 
-// Body / structural sans - neo-grotesque with heavy weights available.
-const archivo = Archivo({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-// Macro display - single black weight, used for oversized uppercase headers.
-const archivoBlack = Archivo_Black({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-// Micro telemetry / metadata - monospace matrix.
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-// Editorial front page (/): neutral technical sans for body copy.
-const geist = Geist({
-  variable: "--font-geist",
+const funnelDisplay = Funnel_Display({
+  variable: "--font-funnel-display",
   subsets: ["latin"],
 });
 
-// Display headings on /studio: characterful humanist grotesque.
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
-});
-
-// Live front page (/) display: Cabinet Grotesk (Fontshare, self-hosted).
-// Variable wght 100-900 is what the kinetic title animates.
-const cabinet = localFont({
-  src: "../fonts/CabinetGrotesk-Variable.woff2",
-  variable: "--font-cabinet",
-  weight: "100 900",
-  display: "swap",
-});
-
-// Quiet cut (/minimal): one grotesk for both display and body.
-const schibsted = Schibsted_Grotesk({
-  variable: "--font-home",
+const funnelSans = Funnel_Sans({
+  variable: "--font-funnel-sans",
   subsets: ["latin"],
 });
 
@@ -68,15 +20,6 @@ export const metadata: Metadata = {
     template: `%s - ${site.shortName}`,
   },
   description: site.blurb,
-  keywords: [
-    "Joseph Irawan",
-    "Computer Science",
-    "Statistics",
-    "Data Science",
-    "Full-stack Developer",
-    "Next.js",
-    "Machine Learning",
-  ],
   authors: [{ name: site.name }],
   openGraph: {
     title: site.shortName,
@@ -95,26 +38,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="h-full antialiased">
-      <body
-        className={`${archivo.variable} ${archivoBlack.variable} ${jetbrainsMono.variable} ${geist.variable} ${bricolage.variable} ${schibsted.variable} ${cabinet.variable} min-h-full flex flex-col`}
-      >
-        {/* Keyboard skip link - first focusable element, visible only on focus. */}
+    <html lang="en" className={`${funnelDisplay.variable} ${funnelSans.variable} antialiased`}>
+      <body className="min-h-dvh">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border-2 focus:border-card-border focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-mark focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-mark-ink"
         >
           Skip to content
         </a>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Cursor />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

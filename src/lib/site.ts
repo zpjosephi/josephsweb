@@ -1,15 +1,11 @@
-// Central identity & links. Change values here = updated across the whole site.
 export const site = {
   name: "Zaphenath Paneah Joseph Irawan",
   shortName: "Joseph Irawan",
-  // Positioning: Computer Science × Statistics
-  tagline: "Computer Science × Statistics. Building software that understands data.",
   blurb:
-    "Computer Science and Statistics graduate from BINUS building full-stack web apps that turn data into decisions. Six projects live in production.",
-  location: "Indonesia",
+    "Joseph Irawan, a Computer Science & Statistics graduate in Jakarta. Data analyst who checks whether the numbers hold up, then builds the tools that show them.",
+  location: "Jakarta, Indonesia",
   email: "josephirawan07@gmail.com",
-  // Replace with your real CV file once uploaded to /public
-  cvUrl: "/cv.pdf?v=2026-08-16",
+  cvUrl: "/cv.pdf?v=2026-10-04",
   socials: {
     github: "https://github.com/zpjosephi",
     linkedin: "https://www.linkedin.com/in/joseph-irawan",
