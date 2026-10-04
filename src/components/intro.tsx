@@ -36,7 +36,7 @@ export function Intro() {
         className="shell relative grid flex-1 grid-cols-1 lg:grid-cols-12 lg:gap-x-10"
       >
         <div className="relative z-[1] flex flex-col justify-center pb-10 pt-12 lg:col-span-7 lg:pb-12 lg:pt-6">
-          <p className="text-[17px] text-on-stage-soft">Looking for my first full-time analyst role in Jakarta</p>
+          <p className="text-[17px] text-on-stage-soft">Based in Jakarta. Open to remote or relocating.</p>
           <h1 className="mt-3 font-display text-[clamp(3.4rem,8.6vw,6rem)] font-semibold leading-[0.92] tracking-[-0.035em]">
             Data analyst.
           </h1>
