@@ -15,9 +15,9 @@ const PHOTOS = [
     className: "col-span-3 aspect-[4/3] lg:col-span-5",
   },
   {
-    src: "/photos/eximbank-lobby.webp",
-    alt: "A group sitting together in front of the Indonesia Eximbank sign",
-    caption: "Eximbank, with the people I worked with",
+    src: "/photos/eximbank-afterhours.webp",
+    alt: "Colleagues around a round wooden table in a garden courtyard",
+    caption: "Eximbank colleagues, after work",
     className: "col-span-3 aspect-[4/3] lg:col-span-5",
   },
 ];

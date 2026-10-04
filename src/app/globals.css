@@ -73,6 +73,15 @@ p {
   mask-composite: intersect;
 }
 
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .tabular {
   font-variant-numeric: tabular-nums;
 }

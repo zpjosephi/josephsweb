@@ -1,5 +1,36 @@
-import Image from "next/image";
+import { PhotoRotator, type Slide } from "@/components/photo-rotator";
 import { earlier, eximbank } from "@/data/work";
+
+const EXIM_PHOTOS: Slide[] = [
+  {
+    src: "/photos/exim-1-farewell.webp",
+    alt: "The Eximbank team posing in front of the Indonesia Eximbank logo",
+    caption: "Last day at Eximbank, with the team.",
+  },
+  {
+    src: "/photos/exim-2-lobby.webp",
+    alt: "A group sitting together in front of the Indonesia Eximbank sign in the lobby",
+    caption: "In the Eximbank lobby.",
+    focus: "50% 60%",
+  },
+  {
+    src: "/photos/exim-3-seminar.webp",
+    alt: "A group in batik seated in front of a Trade Expo Indonesia backdrop for a BRICS business forum",
+    caption: "At a BRICS business forum during Trade Expo Indonesia.",
+    focus: "50% 62%",
+  },
+  {
+    src: "/photos/exim-4-office.webp",
+    alt: "Colleagues standing in a row in the office",
+    caption: "The division, in the office.",
+  },
+  {
+    src: "/photos/exim-5-whiteboard.webp",
+    alt: "Colleagues gathered around a desk with a cake in front of a whiteboard",
+    caption: "A small celebration at the desk.",
+    focus: "50% 55%",
+  },
+];
 
 export function Experience() {
   return (
@@ -53,20 +84,9 @@ export function Experience() {
           ))}
         </ol>
 
-        <figure className="lg:col-span-8 lg:col-start-5">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-rule">
-            <Image
-              src="/photos/eximbank-team.webp"
-              alt="The Eximbank team posing in front of the Indonesia Eximbank logo in the office lobby"
-              fill
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <figcaption className="mt-3 text-[14px] text-ink-soft">
-            With the team I worked alongside, in the Eximbank lobby.
-          </figcaption>
-        </figure>
+        <div className="lg:col-span-8 lg:col-start-5">
+          <PhotoRotator label="Photos from Eximbank" slides={EXIM_PHOTOS} />
+        </div>
 
         <p className="text-[15px] leading-relaxed text-ink-soft lg:col-span-8 lg:col-start-5">
           <span className="font-semibold text-ink">Before that:</span> {earlier.role} at{" "}
