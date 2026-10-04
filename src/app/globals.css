@@ -78,8 +78,15 @@ p {
 }
 
 :focus-visible {
-  outline: 2px solid var(--mark);
+  outline: 2px solid var(--stage);
   outline-offset: 3px;
+}
+
+/* yellow reads on the blue and ink sections, blue reads on paper */
+.bg-stage :focus-visible,
+.bg-stage-deep :focus-visible,
+.bg-ink :focus-visible {
+  outline-color: var(--mark);
 }
 
 ::selection {
@@ -91,7 +98,7 @@ p {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
   }
 }
