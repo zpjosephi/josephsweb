@@ -24,12 +24,6 @@ const EXIM_PHOTOS: Slide[] = [
     alt: "Colleagues standing in a row in the office",
     caption: "The division, in the office.",
   },
-  {
-    src: "/photos/exim-5-whiteboard.webp",
-    alt: "Colleagues gathered around a desk with a cake in front of a whiteboard",
-    caption: "A small celebration at the desk.",
-    focus: "50% 55%",
-  },
 ];
 
 export function Experience() {
