@@ -134,6 +134,8 @@ export function PlayerField({ view }: { view: View }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState<Size | null>(null);
+  // the entrance only plays once the field is actually on screen
+  const [seen, setSeen] = useState(false);
   const [hover, setHover] = useState<{ i: number; x: number; y: number; view: View } | null>(null);
 
   const anim = useRef({
@@ -156,9 +158,9 @@ export function PlayerField({ view }: { view: View }) {
   const radius = size ? Math.max(2.1, Math.min(3.6, size.w / 300)) : 3;
 
   const layout = useMemo(() => {
-    if (!size) return null;
+    if (!size || !seen) return null;
     return view === "age" ? ageLayout(size) : swarm(view, size, radius);
-  }, [view, size, radius]);
+  }, [view, size, radius, seen]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -301,7 +303,20 @@ export function PlayerField({ view }: { view: View }) {
       setSize({ w: Math.round(width), h: Math.round(height) });
     });
     ro.observe(el);
-    return () => ro.disconnect();
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(el);
+    return () => {
+      ro.disconnect();
+      io.disconnect();
+    };
   }, []);
 
   // Kick off a transition whenever the target layout changes.
