@@ -71,7 +71,7 @@ export function About() {
           {PHOTOS.map((p) => (
             <figure key={p.src} className={p.className}>
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-rule">
-                <Image src={p.src} alt={p.alt} fill sizes="(min-width: 1024px) 30vw, 50vw" className="object-cover" />
+                <Image src={p.src} alt={p.alt} fill quality={90} sizes="(min-width: 1024px) 30vw, 50vw" className="object-cover" />
               </div>
               <figcaption className="sr-only">{p.caption}</figcaption>
             </figure>

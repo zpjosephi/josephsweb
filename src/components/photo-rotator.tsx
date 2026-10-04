@@ -65,6 +65,7 @@ export function PhotoRotator({ slides, label }: { slides: Slide[]; label: string
             alt={i === index ? s.alt : ""}
             aria-hidden={i !== index}
             fill
+            quality={90}
             sizes="(min-width: 1024px) 60vw, 100vw"
             style={{ objectPosition: s.focus ?? "50% 50%" }}
             className={`object-cover transition-[opacity,scale] duration-[1200ms] ease-[var(--ease-out-expo)] ${

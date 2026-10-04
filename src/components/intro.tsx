@@ -83,6 +83,7 @@ export function Intro() {
             width={1000}
             height={1438}
             priority
+            quality={90}
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="photo-fade absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom lg:left-auto lg:right-0 lg:h-[96%] lg:translate-x-0"
           />
