@@ -9,6 +9,10 @@ const FACTS = [
   },
   { lead: "B.Sc.", text: "Computer Science & Statistics, BINUS University, 2026" },
   { lead: "Tools", text: "Excel, Tableau, SQL, Python and R" },
+  {
+    lead: "Methods",
+    text: "Regression and panel data, hypothesis testing, data cleaning, dashboards",
+  },
 ];
 
 export function Intro() {
@@ -44,7 +48,7 @@ export function Intro() {
             I check whether the numbers hold up, then build the tools that show them.
           </p>
 
-          <ul className="mt-9 max-w-[52ch] space-y-3">
+          <ul className="mt-9 max-w-[60ch] space-y-3">
             {FACTS.map((f) => (
               <li key={f.lead} className="grid grid-cols-[4.5rem_1fr] gap-x-4 text-[16px] leading-snug">
                 <span className="tabular font-semibold text-on-stage">{f.lead}</span>
