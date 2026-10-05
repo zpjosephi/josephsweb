@@ -3,14 +3,9 @@ import { earlier, eximbank } from "@/data/work";
 
 const EXIM_PHOTOS: Slide[] = [
   {
-    src: "/photos/exim-1-farewell.webp",
-    alt: "The Eximbank team posing in front of the Indonesia Eximbank logo",
-    caption: "Last day at Eximbank, with the team.",
-  },
-  {
     src: "/photos/exim-2-lobby.webp",
-    alt: "A group sitting together in front of the Indonesia Eximbank sign in the lobby",
-    caption: "In the Eximbank lobby.",
+    alt: "Outgoing and incoming interns together in front of the Indonesia Eximbank sign in the lobby",
+    caption: "Handover day: the outgoing interns' last day, and one of my first.",
     focus: "50% 60%",
   },
   {
@@ -35,6 +30,11 @@ const EXIM_PHOTOS: Slide[] = [
     alt: "A group of colleagues in batik crouching together for a photo among plants",
     caption: "With the division, after work.",
     focus: "50% 36%",
+  },
+  {
+    src: "/photos/exim-1-farewell.webp",
+    alt: "The Eximbank team posing in front of the Indonesia Eximbank logo",
+    caption: "Last day at Eximbank, with the team.",
   },
 ];
 
