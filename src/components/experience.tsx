@@ -24,6 +24,18 @@ const EXIM_PHOTOS: Slide[] = [
     alt: "Colleagues standing in a row in the office",
     caption: "The division, in the office.",
   },
+  {
+    src: "/photos/exim-5-gbk.webp",
+    alt: "A group in Indonesia national team shirts outside Gelora Bung Karno stadium at night",
+    caption: "Watching Indonesia play at GBK with the Eximbank crew.",
+    focus: "50% 52%",
+  },
+  {
+    src: "/photos/exim-6-division.webp",
+    alt: "A group of colleagues in batik crouching together for a photo among plants",
+    caption: "With the division, after work.",
+    focus: "50% 36%",
+  },
 ];
 
 export function Experience() {
