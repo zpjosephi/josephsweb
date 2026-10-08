@@ -24,7 +24,7 @@ const PHOTOS = [
 
 export function About() {
   return (
-    <section aria-labelledby="about-title" className="bg-paper text-ink">
+    <section id="about" aria-labelledby="about-title" className="bg-paper text-ink">
       <div className="shell grid grid-cols-1 gap-y-12 border-t border-rule py-24 lg:grid-cols-12 lg:gap-x-10 lg:py-32">
         <div className="lg:col-span-5">
           <h2

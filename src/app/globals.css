@@ -38,6 +38,18 @@
   --color-mark-ink: var(--mark-ink);
   --font-sans: var(--font-funnel-sans);
   --font-display: var(--font-funnel-display);
+  --font-mono: var(--font-jetbrains);
+
+  /* night-lab tokens, only defined inside .live */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 }
 
 html {
@@ -110,4 +122,87 @@ p {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===========================================================================
+   Night lab: the home page (/). A science-museum exhibit after hours: deep
+   green-black, one phosphor-mint accent that always means "live data".
+   The shared sections (thesis explorer, Eximbank, projects, about) are written
+   against the paper/stage tokens, so they get remapped here instead of forked.
+=========================================================================== */
+.live {
+  --background: oklch(0.145 0.012 145);
+  --foreground: oklch(0.955 0.007 145);
+  --muted: oklch(0.19 0.014 145);
+  --muted-foreground: oklch(0.76 0.02 145);
+  --card: oklch(0.175 0.013 145);
+  --card-border: oklch(0.29 0.02 145);
+  --hairline: oklch(0.38 0.025 145);
+  --accent: oklch(0.87 0.19 148);
+  --accent-foreground: oklch(0.17 0.03 148);
+
+  --paper: var(--background);
+  --ink: var(--foreground);
+  --ink-soft: var(--muted-foreground);
+  --rule: var(--card-border);
+  --stage: var(--accent);
+  --stage-deep: oklch(0.165 0.014 145);
+  --on-stage: var(--foreground);
+  --on-stage-soft: var(--muted-foreground);
+  --on-stage-faint: oklch(0.62 0.03 145);
+  --mark: var(--accent);
+  --mark-ink: var(--accent-foreground);
+
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+.live h1,
+.live h2,
+.live h3 {
+  font-family: var(--font-cabinet), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* The shared sections ship Funnel; inside the lab they speak Cabinet at
+   regular weight, so the semibold display classes are softened here. */
+.live .font-display {
+  font-family: var(--font-cabinet), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 440;
+  letter-spacing: -0.01em;
+}
+
+.live-display {
+  font-family: var(--font-cabinet), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 420;
+  letter-spacing: -0.01em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.live .mono {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+.live-readout {
+  border: 1px solid var(--card-border);
+  background: oklch(0.155 0.013 145 / 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.live .link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--hairline);
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.live .link:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+.live :focus-visible {
+  outline-color: var(--accent);
 }

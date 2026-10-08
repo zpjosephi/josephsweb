@@ -38,9 +38,9 @@ const EXIM_PHOTOS: Slide[] = [
   },
 ];
 
-export function Experience() {
+export function Experience({ id = "work" }: { id?: string }) {
   return (
-    <section id="work" aria-labelledby="work-title" className="bg-paper text-ink">
+    <section id={id} aria-labelledby="work-title" className="bg-paper text-ink">
       <div className="shell grid grid-cols-1 gap-y-12 py-24 lg:grid-cols-12 lg:gap-x-10 lg:py-32">
         <div className="lg:sticky lg:top-10 lg:col-span-4 lg:self-start">
           <h2

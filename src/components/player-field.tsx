@@ -111,8 +111,9 @@ const anchor = (() => {
   return (a: number) => Math.exp(meanLn - meanF + f(a));
 })();
 
-function readCss(name: string) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+// read from the canvas so a themed parent (the night-lab home) can recolor it
+function readCss(el: Element, name: string) {
+  return getComputedStyle(el).getPropertyValue(name).trim();
 }
 
 function tag(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, align: "left" | "right", fg: string, bg: string) {
@@ -176,11 +177,11 @@ export function PlayerField({ view }: { view: View }) {
     ctx.clearRect(0, 0, size.w, size.h);
 
     const font = getComputedStyle(document.body).fontFamily;
-    const onStage = readCss("--on-stage");
-    const soft = readCss("--on-stage-soft");
-    const faint = readCss("--on-stage-faint");
-    const mark = readCss("--mark");
-    const stage = readCss("--stage-deep");
+    const onStage = readCss(canvas, "--on-stage");
+    const soft = readCss(canvas, "--on-stage-soft");
+    const faint = readCss(canvas, "--on-stage-faint");
+    const mark = readCss(canvas, "--mark");
+    const stage = readCss(canvas, "--stage-deep");
     const a = anim.current;
     const v = viewRef.current;
 

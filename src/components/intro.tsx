@@ -19,7 +19,7 @@ export function Intro() {
   return (
     <section className="relative flex min-h-[min(100svh,980px)] flex-col overflow-hidden bg-stage text-on-stage lg:min-h-[76svh]">
       <header className="shell relative z-[var(--z-sticky)] flex items-center justify-between pt-6 sm:pt-8">
-        <Link href="/" className="font-display text-lg font-semibold tracking-tight">
+        <Link href="/analyst" className="font-display text-lg font-semibold tracking-tight">
           Joseph Irawan
         </Link>
         <nav aria-label="Primary" className="flex items-center gap-5 text-[15px] sm:gap-8">

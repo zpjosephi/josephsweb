@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Funnel_Display, Funnel_Sans } from "next/font/google";
+import { Funnel_Display, Funnel_Sans, Geist, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/lib/site";
 
@@ -11,6 +12,26 @@ const funnelDisplay = Funnel_Display({
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
   subsets: ["latin"],
+});
+
+// night-lab home: Cabinet Grotesk display (variable wght, the kinetic title
+// animates it), Geist body, JetBrains Mono for live readouts only
+const cabinet = localFont({
+  src: "../fonts/CabinetGrotesk-Variable.woff2",
+  variable: "--font-cabinet",
+  weight: "100 900",
+  display: "swap",
+});
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -38,7 +59,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${funnelDisplay.variable} ${funnelSans.variable} antialiased`}>
+    <html lang="en" className={`${funnelDisplay.variable} ${funnelSans.variable} ${cabinet.variable} ${geist.variable} ${jetbrains.variable} antialiased`}>
       <body className="min-h-dvh">
         <a
           href="#main-content"
