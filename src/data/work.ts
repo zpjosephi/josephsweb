@@ -155,5 +155,5 @@ export const activities = [
   },
 ] as const;
 
-export const languages = "Bahasa Indonesia (native), Javanese (fluent), English (professional working)";
+export const languages = "Bahasa Indonesia (native), Javanese (fluent), English (intermediate; strong reading and listening)";
 export const certification = "AWS Certified Cloud Practitioner, valid through 2027";
